@@ -312,6 +312,7 @@
           <e p="LevelManager.cs" t="Include" />
           <e p="OpponentAI.cs" t="Include" />
           <e p="OpponentAnimationsManager.cs" t="Include" />
+          <e p="ParticleManager.cs" t="Include" />
           <e p="PlayerInput.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="Random Object Scripts" t="Include">

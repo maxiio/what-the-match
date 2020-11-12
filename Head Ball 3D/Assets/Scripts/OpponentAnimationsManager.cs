@@ -41,8 +41,8 @@ public class OpponentAnimationsManager : MonoBehaviour
 
     public void OpponentMoving(Vector2 destination)
     {
-        /*player.GetComponent<Animator>().SetFloat("VelX", -destination.x);
-        player.GetComponent<Animator>().SetFloat("VelY", -destination.y);*/
+        player.GetComponent<Animator>().SetFloat("VelX", -destination.x);
+        player.GetComponent<Animator>().SetFloat("VelY", destination.y);
     }
 
     public void OpponentStopped()

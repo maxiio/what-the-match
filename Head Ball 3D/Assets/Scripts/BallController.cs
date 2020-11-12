@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using RootMotion.Demos;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -66,6 +67,7 @@ public class BallController : MonoBehaviour
     private void Start()
     {
         rigidbody = gameObject.GetComponent<Rigidbody>();
+        EventManager.Instance.OnPlayerCollideWithBall += HeadForce;
     }
 
     private void Update()
@@ -124,6 +126,8 @@ public class BallController : MonoBehaviour
         
         if (other.tag.Equals("Player"))
         {
+            EventManager.Instance.PlayerCollideWithBall();
+        
             turn = BallState.PlayerShoot;
 
             Shoot(BallState.PlayerShoot, other);
@@ -294,5 +298,12 @@ public class BallController : MonoBehaviour
     private Vector3 CalculateQuadraticBezierCurve(float t, Vector3 point1, Vector3 point2, Vector3 point3)
     {
         return (((1 - t) * (1 - t)) * point1) + (2 * (1 - t) * t * point2) + ((t*t) * point3);
+    }
+
+    public void HeadForce()
+    {
+        Vector3 headForce = new Vector3(0,0,2f);
+        Debug.Log("head force added");
+        player.transform.position -= headForce;
     }
 }
