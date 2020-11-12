@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\MirFur\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\MirFur\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Head Ball 3D.-1411339814.00" t="ExcludeRecursive" />
-    <e p="C:\Users\MirFur\Desktop\Head Ball 3D" t="IncludeRecursive">
+    <e p="C:\Users\SeyyidFurkanBedir\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\SeyyidFurkanBedir\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Head Ball 3D.-1405644762.00" t="ExcludeRecursive" />
+    <e p="C:\Users\SeyyidFurkanBedir\Desktop\Unity Projects\Head Ball 3D" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
@@ -90,6 +90,20 @@
           </e>
         </e>
         <e p="Plugins" t="Include">
+          <e p="Demigiant" t="Include">
+            <e p="DOTween" t="Include">
+              <e p="Modules" t="Include">
+                <e p="DOTweenModuleAudio.cs" t="Include" />
+                <e p="DOTweenModulePhysics.cs" t="Include" />
+                <e p="DOTweenModulePhysics2D.cs" t="Include" />
+                <e p="DOTweenModuleSprite.cs" t="Include" />
+                <e p="DOTweenModuleUI.cs" t="Include" />
+                <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+                <e p="DOTweenModuleUtils.cs" t="Include" />
+              </e>
+              <e p="readme.txt" t="Include" />
+            </e>
+          </e>
           <e p="RootMotion" t="Include">
             <e p="Baker" t="Include">
               <e p="_DEMOS" t="Include">
@@ -292,11 +306,19 @@
           <e p="AnimationsManager.cs" t="Include" />
           <e p="BallController.cs" t="Include" />
           <e p="CameraManager.cs" t="Include" />
+          <e p="CircleScript.cs" t="Include" />
           <e p="EventManager.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="OpponentAI.cs" t="Include" />
+          <e p="OpponentAnimationsManager.cs" t="Include" />
           <e p="PlayerInput.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
+          <e p="Random Object Scripts" t="Include">
+            <e p="RandomObject.cs" t="Include" />
+            <e p="RandomObjectGenerator.cs" t="Include" />
+            <e p="RandomObjectManager.cs" t="Include" />
+            <e p="RandomObjectTriggerCollider.cs" t="Include" />
+          </e>
           <e p="States.cs" t="Include" />
           <e p="UIManager.cs" t="Include" />
         </e>

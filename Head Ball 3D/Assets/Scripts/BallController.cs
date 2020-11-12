@@ -9,9 +9,14 @@ public class BallController : MonoBehaviour
 {
     [Header("Ball Speed")] 
     public float ballSpeed;
+    public float opponentBallSpeedMultiplier;
+    
+    [Header("Difficulty (Max difficult 10)")] 
+    public float difficulty;
     
     [Header("Shoot Touch Margin")] 
     public float touchMargin;
+    public float secondMargin;
     
     [Header("Max Ball Height")] 
     public float ballHeight;
@@ -73,9 +78,16 @@ public class BallController : MonoBehaviour
         ringPosition = ring.transform.position;
         
         if (!isThrowed) return;
-        
-        time += ballSpeed * Time.fixedDeltaTime;
-        
+
+        if (turn == BallState.OpponentShoot)
+        {
+            time += ballSpeed * opponentBallSpeedMultiplier * Time.fixedDeltaTime;
+        }
+        else
+        {
+            time += ballSpeed * Time.fixedDeltaTime;
+        }
+
         if (time >= 1) {
             time = 0;
             isThrowed = false;
@@ -90,11 +102,9 @@ public class BallController : MonoBehaviour
         );
 
         if (turn == BallState.OpponentShoot)
-            //rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, 10);
-            rigidbody.velocity = new Vector3(0, 0, 10);
+            rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, 10);
         else
-            //rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, -10);
-            rigidbody.velocity = new Vector3(0, 0, -10);
+            rigidbody.velocity = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, -10);
 
     }
 
@@ -102,9 +112,11 @@ public class BallController : MonoBehaviour
     {
         if (other.name.Equals("Ground"))
         {
-            ThrowBall(new Vector3(0, 7.5f, 29), new Vector3(0, 30, 0), new Vector3(-4, 1.25f, -27));
-            
             turn = BallState.OpponentShoot;
+
+            //ThrowBall(new Vector3(0, 7.5f, 29), new Vector3(0, 30, 0), new Vector3(-4, 1.25f, -27));
+            ThrowBall(-5, 5);
+            
             SetRingPosition(0.94f);
 
             opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);
@@ -112,36 +124,53 @@ public class BallController : MonoBehaviour
         
         if (other.tag.Equals("Player"))
         {
+            turn = BallState.PlayerShoot;
+
             Shoot(BallState.PlayerShoot, other);
             
-            turn = BallState.PlayerShoot;
             SetRingPosition(0.94f);
 
-
-
-            //opponent.transform.position.Set();
-            //opponent.transform.position.Set();
-            //opponent.transform.position = new Vector3();
             opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);
-            //opponent.GetComponent<Rigidbody>().MovePosition(new Vector3(ring.transform.position.x, transform.position.y, ring.transform.position.z + 1.0f));
         } 
         
         if (other.tag.Equals("Opponent"))
         {
+            turn = BallState.OpponentShoot;
+
             Shoot(BallState.OpponentShoot, other);
             
-            turn = BallState.OpponentShoot;
             SetRingPosition(0.94f);
-
-            // opponent.transform.position.Set(0, 0.1f, 29.8f);
-            //opponent.transform.position = new Vector3(0, 0.1f, 29.8f);
+            
             opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);
-            //opponent.GetComponent<Rigidbody>().MovePosition(new Vector3(0, 0.1f, 29.8f));
         }
     }
 
     private void Shoot(BallState ballState, Collider collision)
     {
+        // if opponent shots
+        if (ballState == BallState.OpponentShoot)
+        {
+            if (Random.value > 0.8f)
+            {
+                Debug.Log("perfect");
+                if (opponent.transform.position.x < 0)
+                {
+                    ThrowBall(pitchHalfWidth - (7 / Mathf.Clamp(difficulty / 2, 1f, 7f)), pitchHalfWidth - (5 / Mathf.Clamp(difficulty / 2, 1f, 5f)));
+                }
+                else if (opponent.transform.position.x >= 0)
+                {
+                    ThrowBall(-pitchHalfWidth + (7 / Mathf.Clamp(difficulty / 2, 1f, 7f)), -pitchHalfWidth + (5 / Mathf.Clamp(difficulty / 2, 1f, 5f)));
+                }
+            }
+            else
+            {
+                ThrowBall(-pitchHalfWidth / (10 / difficulty), pitchHalfWidth / (10 / difficulty));
+            }
+            
+
+            return;
+        }
+        
         // ball length 2 unit
 
         // if player hit from the right side
@@ -153,28 +182,14 @@ public class BallController : MonoBehaviour
             // send ball to the left corner of the opponent pitch
             if (collision.transform.position.x < 0)
             {
-                float fallPoint = Random.Range(-pitchHalfWidth + fallRadius, -pitchHalfWidth);
-                float fallDistance = Random.Range(dropDistance - dropRadius, dropDistance + dropRadius);
-
-                // Debug.Log("player left - ball left corner (right)");
-                
-                if (ballState == BallState.OpponentShoot) fallDistance *= -1;
-                
-                ThrowBall(transform.position, new Vector3(fallPoint / 2, ballHeight, 0), new Vector3(fallPoint, 1.25f, fallDistance));
+                ThrowBall(-pitchHalfWidth + fallRadius, -pitchHalfWidth);
             }
             
             // if player on the right side of his own pitch
             // send ball to the right corner of the opponent pitch
             if (collision.transform.position.x > 0)
             {
-                float fallPoint = Random.Range(-pitchHalfWidth + fallRadius, -pitchHalfWidth);
-                float fallDistance = Random.Range(dropDistance - dropRadius, dropDistance + dropRadius);
-
-               //  Debug.Log("player right - ball right corner (right)");
-
-                if (ballState == BallState.OpponentShoot) fallDistance *= -1;
-                
-                ThrowBall(transform.position, new Vector3(fallPoint / 2, ballHeight, 0), new Vector3(fallPoint, 1.25f, fallDistance));
+                ThrowBall(-pitchHalfWidth + fallRadius, -pitchHalfWidth);
             }
         }
         
@@ -187,28 +202,14 @@ public class BallController : MonoBehaviour
             // send ball to the right corner of the opponent pitch
             if (collision.transform.position.x < 0)
             {
-                float fallPoint = Random.Range(pitchHalfWidth - fallRadius, pitchHalfWidth);
-                float fallDistance = Random.Range(dropDistance - dropRadius, dropDistance + dropRadius);
-
-                // Debug.Log("player left - ball right corner (left)");
-                
-                if (ballState == BallState.OpponentShoot) fallDistance *= -1;
-                
-                ThrowBall(transform.position, new Vector3(fallPoint / 2, ballHeight, 0), new Vector3(fallPoint, 1.25f, fallDistance));
+                ThrowBall(pitchHalfWidth - fallRadius, pitchHalfWidth);
             }
             
             // if player on the right side of his own pitch
             // send ball to the right corner of the opponent pitch
             if (collision.transform.position.x > 0)
             {
-                float fallPoint = Random.Range(pitchHalfWidth - fallRadius, pitchHalfWidth);
-                float fallDistance = Random.Range(dropDistance - dropRadius, dropDistance + dropRadius);
-
-                // Debug.Log("player right - ball right corner (left)");
-                
-                if (ballState == BallState.OpponentShoot) fallDistance *= -1;
-                
-                ThrowBall(transform.position, new Vector3(fallPoint / 2, ballHeight, 0), new Vector3(fallPoint, 1.25f, fallDistance));
+                ThrowBall(pitchHalfWidth - fallRadius, pitchHalfWidth);
             }
         }
         
@@ -216,24 +217,25 @@ public class BallController : MonoBehaviour
         // send ball to towards
         if (collision.transform.position.x <= transform.position.x + touchMargin && collision.transform.position.x >= transform.position.x - touchMargin)
         {
-            float fallPoint = Random.Range(transform.position.x - fallRadius / 3f, transform.position.x + fallRadius / 3f);
-            float fallDistance = Random.Range(dropDistance - dropRadius, dropDistance + dropRadius);
-
-            // Debug.Log("ball towards (middle)");
-                
-            if (ballState == BallState.OpponentShoot) fallDistance *= -1;
-                
-            ThrowBall(transform.position, new Vector3(fallPoint / 2, ballHeight, 0), new Vector3(fallPoint, 1.25f, fallDistance));
+            ThrowBall(transform.position.x - fallRadius / 3f, transform.position.x + fallRadius / 3f);
         }
         
         SetRingPosition(0.94f);
     }
 
-    private void ThrowBall(Vector3 startP, Vector3 secondP, Vector3 finalP)
+    private void ThrowBall(float min, float max)
     {
-        startPosition = startP;
-        secondPosition = secondP;
-        finalPosition = finalP;
+        float fallPoint = Random.Range(min, max);
+        float fallDistance = Random.Range(dropDistance - dropRadius, dropDistance + dropRadius);
+
+        if (turn == BallState.OpponentShoot)
+        {
+            fallDistance *= -1;
+        }
+
+        startPosition = transform.position;
+        secondPosition = new Vector3(fallPoint / 2, ballHeight, 0);
+        finalPosition = new Vector3(fallPoint, 1.25f, fallDistance);
 
         isThrowed = true;
         time = 0;
