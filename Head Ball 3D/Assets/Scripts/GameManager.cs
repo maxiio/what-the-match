@@ -59,4 +59,21 @@ public class GameManager : MonoBehaviour
         playerMovement.enabled = true;
         ballController.enabled = true;
     }
+    
+    private void OnApplicationQuit()
+    {
+        SaveGame();
+    }
+
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        SaveGame();
+    }
+    
+    private void SaveGame()
+    {
+        SavedDatas savedDatas = new SavedDatas();
+        savedDatas.SaveLevel(LevelManager.Instance.GetCurrentLevel());
+        PlayerPrefs.Save();
+    }
 }

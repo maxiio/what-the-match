@@ -309,6 +309,7 @@
           <e p="CircleScript.cs" t="Include" />
           <e p="EventManager.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
+          <e p="LevelManager.cs" t="Include" />
           <e p="OpponentAI.cs" t="Include" />
           <e p="OpponentAnimationsManager.cs" t="Include" />
           <e p="PlayerInput.cs" t="Include" />
@@ -319,6 +320,7 @@
             <e p="RandomObjectManager.cs" t="Include" />
             <e p="RandomObjectTriggerCollider.cs" t="Include" />
           </e>
+          <e p="SavedDatas.cs" t="Include" />
           <e p="SceneLoader.cs" t="Include" />
           <e p="States.cs" t="Include" />
           <e p="UIManager.cs" t="Include" />
