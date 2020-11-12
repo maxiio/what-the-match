@@ -6,8 +6,10 @@ public class ParticleManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject hitTheBall;
+    [SerializeField] private GameObject hitTheBall2;
     
     public static ParticleManager Instance;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -43,5 +45,6 @@ public class ParticleManager : MonoBehaviour
     public void ShootEffect()
     {
         hitTheBall.GetComponent<ParticleSystem>().Play();
+        hitTheBall2.GetComponent<ParticleSystem>().Play();
     }
 }

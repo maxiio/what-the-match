@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class RandomObject : MonoBehaviour
 {
+    private Vector3 rotateVector;
     // Start is called before the first frame update
     void Start()
     {
         EventManager.Instance.ObjectCreated(gameObject);
+        rotateVector = new Vector3(0,Random.Range(0,360),90);
+        gameObject.transform.Rotate(rotateVector);
     }
     
     
@@ -16,8 +19,11 @@ public class RandomObject : MonoBehaviour
         if (other.gameObject.layer.Equals(9))
         {
             //Debug.Log("i am here");
+            
             EventManager.Instance.TookObject(gameObject);
             gameObject.GetComponent<BoxCollider>().enabled = false;
+            
+         
         }
     }
     

@@ -57,7 +57,7 @@ public class AnimationsManager : MonoBehaviour
 
     public void NewObjectCreated(GameObject obj)
     {
-        //Debug.Log(obj.name);
+        if(obj.activeSelf)
         obj.transform.DOLocalMoveY(.7f, 1f).OnComplete((() => obj.AddComponent<Rigidbody>()));
     }
 }

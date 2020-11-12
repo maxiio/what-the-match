@@ -302,7 +302,7 @@ public class BallController : MonoBehaviour
 
     public void HeadForce()
     {
-        Vector3 headForce = new Vector3(0,0,2f);
+        Vector3 headForce = new Vector3(0,0,3f);
         Debug.Log("head force added");
         player.transform.position -= headForce;
     }
