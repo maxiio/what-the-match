@@ -20,8 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fb34233-304f-40f8-a6a5-c0072cd7a0cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/NewPlayer/Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/NewPlayer/Animator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Head Ball 3D/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Head Ball 3D/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Head Ball 3D/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Head Ball 3D/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Head Ball 3D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Head Ball 3D/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baseball Prop.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baseball Prop.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TennisRacket Prop.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TennisRacket Prop.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OpponentAnimationsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OpponentAnimationsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectTriggerCollider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectTriggerCollider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Varlık 4-8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Varlık 4-8.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recordings/movie_001.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recordings/movie_002.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/Recordings/movie_002.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recordings/movie_003.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/Recordings/movie_003.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recordings/movie_004.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recordings/movie_005.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recordings/movie_006.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recordings/movie_007.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recordings/movie_008.mp4" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +62,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimationsManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Unity Projects/Fruit Catch 3D/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectTriggerCollider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Unity Projects/Fruit Catch 3D/Assets/Scripts/LevelManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectGenerator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -53,17 +76,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NetCollideDetect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RandomObjectManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RandomObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectTriggerCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RamdomObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimationsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Circle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CircleScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/OpponentAI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/OpponentAnimationsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInput.cs" />
@@ -72,6 +91,10 @@
         <option value="$PROJECT_DIR$/../../../Unity Projects/Fruit Catch 3D/Assets/Scripts/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectTriggerCollider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/OpponentAnimationsManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObject.cs" />
       </list>
     </option>
   </component>
@@ -134,7 +157,7 @@
       <workItem from="1604925688117" duration="3359000" />
       <workItem from="1605028409196" duration="6097000" />
       <workItem from="1605191990965" duration="636000" />
-      <workItem from="1605203799703" duration="2414000" />
+      <workItem from="1605203799703" duration="5356000" />
     </task>
     <servers />
   </component>

@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using RootMotion.Dynamics;
 using Unity.Mathematics;
 using UnityEngine;
-using Random = UnityEngine.Random;
+
 
 public class RandomObjectManager : MonoBehaviour
 {
-    [SerializeField] private PropMuscle rightHandProp;
-    [SerializeField] private PropMuscle leftHandProp;
+    [SerializeField] private GameObject baseball;
     
     // Start is called before the first frame update
     void Start()
@@ -23,8 +22,9 @@ public class RandomObjectManager : MonoBehaviour
         Debug.Log(States.Instance.playerState);
         if (States.Instance.playerState == States.PlayerState.Free)
         {
-            rightHandProp.currentProp = obj.GetComponent<PuppetMasterProp>();
+            baseball.SetActive(true);
             States.Instance.ObjectTaked(obj);
+            Destroy(obj);
         }
        
     }

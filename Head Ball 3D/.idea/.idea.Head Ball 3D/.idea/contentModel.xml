@@ -318,7 +318,6 @@
             <e p="RandomObject.cs" t="Include" />
             <e p="RandomObjectGenerator.cs" t="Include" />
             <e p="RandomObjectManager.cs" t="Include" />
-            <e p="RandomObjectTriggerCollider.cs" t="Include" />
           </e>
           <e p="SavedDatas.cs" t="Include" />
           <e p="SceneLoader.cs" t="Include" />

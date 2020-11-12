@@ -10,4 +10,15 @@ public class RandomObject : MonoBehaviour
         EventManager.Instance.ObjectCreated(gameObject);
     }
     
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer.Equals(9))
+        {
+            //Debug.Log("i am here");
+            EventManager.Instance.TookObject(gameObject);
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+    
 }
