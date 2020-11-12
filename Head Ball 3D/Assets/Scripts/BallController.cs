@@ -152,7 +152,6 @@ public class BallController : MonoBehaviour
         {
             if (Random.value > 0.8f)
             {
-                Debug.Log("perfect");
                 if (opponent.transform.position.x < 0)
                 {
                     ThrowBall(pitchHalfWidth - (7 / Mathf.Clamp(difficulty / 2, 1f, 7f)), pitchHalfWidth - (5 / Mathf.Clamp(difficulty / 2, 1f, 5f)));
@@ -173,46 +172,89 @@ public class BallController : MonoBehaviour
         
         // ball length 2 unit
 
-        // if player hit from the right side
-        if (collision.transform.position.x > transform.position.x + touchMargin)
+        // if player hit from the right-in side
+        if (collision.transform.position.x > transform.position.x + touchMargin && collision.transform.position.x < transform.position.x + secondMargin)
         {
             // max right 15.5f
+            Debug.Log("right-in");
+            // if player on the left side of his own pitch
+            // send ball to the right corner of the opponent pitch
+            if (collision.transform.position.x < 0)
+            {
+                ThrowBall(-pitchHalfWidth + (fallRadius / 2), -pitchHalfWidth);
+            }
             
+            // if player on the right side of his own pitch
+            // send ball to the right corner of the opponent pitch
+            if (collision.transform.position.x > 0)
+            {
+                ThrowBall(-pitchHalfWidth + (fallRadius), -pitchHalfWidth + (fallRadius * 2));
+            }
+        }
+
+        // if player hit from the right-out side
+        if (collision.transform.position.x > transform.position.x + secondMargin)
+        {
+            Debug.Log("right-out");
+            // max right 15.5f
+
+            // if player on the left side of his own pitch
+            // send ball to the right out corner of the opponent pitch
+            if (collision.transform.position.x < 0)
+            {
+                ThrowBall(-pitchHalfWidth - fallRadius, -pitchHalfWidth - (fallRadius / 2));
+            }
+
+            // if player on the right side of his own pitch
+            // send ball to the right corner of the opponent pitch
+            if (collision.transform.position.x > 0)
+            {
+                ThrowBall(-pitchHalfWidth + (fallRadius / 2), -pitchHalfWidth + (fallRadius / 4));
+            }
+        }
+
+        // if player hit from the left-in side
+        if (collision.transform.position.x < transform.position.x - touchMargin && collision.transform.position.x > transform.position.x + touchMargin)
+        {
+            Debug.Log("left-in");
+            // max left -15.5
+
             // if player on the left side of his own pitch
             // send ball to the left corner of the opponent pitch
             if (collision.transform.position.x < 0)
             {
-                ThrowBall(-pitchHalfWidth + fallRadius, -pitchHalfWidth);
+                ThrowBall(pitchHalfWidth - (fallRadius * 2), pitchHalfWidth - fallRadius);
             }
             
             // if player on the right side of his own pitch
-            // send ball to the right corner of the opponent pitch
+            // send ball to the left corner of the opponent pitch
             if (collision.transform.position.x > 0)
             {
-                ThrowBall(-pitchHalfWidth + fallRadius, -pitchHalfWidth);
+                ThrowBall(pitchHalfWidth - (fallRadius * 2), pitchHalfWidth - (fallRadius));
             }
         }
-        
-        // if player hit from the left side
-        if (collision.transform.position.x < transform.position.x - touchMargin)
+
+        // if player hit from the left-out side
+        if (collision.transform.position.x < transform.position.x - secondMargin)
         {
+            Debug.Log("left-out");
             // max left -15.5
-            
+
             // if player on the left side of his own pitch
-            // send ball to the right corner of the opponent pitch
+            // send ball to the left corner of the opponent pitch
             if (collision.transform.position.x < 0)
             {
-                ThrowBall(pitchHalfWidth - fallRadius, pitchHalfWidth);
+                ThrowBall(pitchHalfWidth - (fallRadius / 2), pitchHalfWidth - (fallRadius / 4));
             }
-            
+
             // if player on the right side of his own pitch
-            // send ball to the right corner of the opponent pitch
+            // send ball to the right out corner of the opponent pitch
             if (collision.transform.position.x > 0)
             {
-                ThrowBall(pitchHalfWidth - fallRadius, pitchHalfWidth);
+                ThrowBall(pitchHalfWidth + fallRadius, pitchHalfWidth + (fallRadius / 2));
             }
         }
-        
+
         // if player hit from middle point
         // send ball to towards
         if (collision.transform.position.x <= transform.position.x + touchMargin && collision.transform.position.x >= transform.position.x - touchMargin)
