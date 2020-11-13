@@ -8,8 +8,11 @@ using UnityEngine;
 
 public class RandomObjectManager : MonoBehaviour
 {
-    [SerializeField] private GameObject baseball;
-    [SerializeField] private GameObject tennisRacket;
+    [SerializeField] private GameObject baseballR;
+    [SerializeField] private GameObject tennisRacketR;
+    
+    [SerializeField] private GameObject baseballL;
+    [SerializeField] private GameObject tennisRacketL;
     
     // Start is called before the first frame update
     void Start()
@@ -17,24 +20,43 @@ public class RandomObjectManager : MonoBehaviour
         EventManager.Instance.OnTakingObject += ObjectTaked;
     }
     
-    private void ObjectTaked(GameObject obj)
+    private void ObjectTaked(GameObject obj,int whichhand)
     {
         //Debug.Log(obj);
         Debug.Log(States.Instance.playerState);
         if (States.Instance.playerState == States.PlayerState.Free)
         {
-            if (obj.tag.Equals("Baseball"))
+            if (whichhand == 0)
             {
-                baseball.SetActive(true);
-                States.Instance.ObjectTaked(obj);
-                Destroy(obj);
+                if (obj.tag.Equals("Baseball"))
+                {
+                    baseballL.SetActive(true);
+                    States.Instance.ObjectTaked(obj);
+                    Destroy(obj);
+                }
+                else if (obj.tag.Equals("TennisRacket"))
+                {
+                    tennisRacketL.SetActive(true);
+                    States.Instance.ObjectTaked(obj);
+                    Destroy(obj);
+                }
             }
-            else if (obj.tag.Equals("TennisRacket"))
+            else if (whichhand == 1)
             {
-                tennisRacket.SetActive(true);
-                States.Instance.ObjectTaked(obj);
-                Destroy(obj);
+                if (obj.tag.Equals("Baseball"))
+                {
+                    baseballR.SetActive(true);
+                    States.Instance.ObjectTaked(obj);
+                    Destroy(obj);
+                }
+                else if (obj.tag.Equals("TennisRacket"))
+                {
+                    tennisRacketR.SetActive(true);
+                    States.Instance.ObjectTaked(obj);
+                    Destroy(obj);
+                }
             }
+            
             
         }
        

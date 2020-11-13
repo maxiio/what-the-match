@@ -3,10 +3,9 @@ using Random = UnityEngine.Random;
 
 public class RandomObjectGenerator : MonoBehaviour
 {
-
+    
     [SerializeField] private GameObject[] objectPrefabs;
-
-    private GameObject newObj;
+    [SerializeField] private GameObject player;
     
     public Color GizmosColor = new Color(0.5f, 0.5f, 0.5f, 0.2f);
     
@@ -19,7 +18,7 @@ public class RandomObjectGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn",5f,25);
+        InvokeRepeating("Spawn",1f,3f);
     }
     
     private void Spawn()
@@ -30,8 +29,14 @@ public class RandomObjectGenerator : MonoBehaviour
             2f,
             Random.Range(-range.z, range.z));
         Vector3 randomCoordinate = origin + randomRange;
+
+        if (Mathf.Abs(player.transform.position.x - randomCoordinate.x) > 4 ||
+            Mathf.Abs(player.transform.position.z - randomCoordinate.z) > 4)
+        {
+            Instantiate(objectPrefabs[0],randomCoordinate,Quaternion.identity);
+        }
         
-        newObj = Instantiate(objectPrefabs[0],randomCoordinate,Quaternion.identity);
+       
     }
     
 }

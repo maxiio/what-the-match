@@ -10,6 +10,8 @@ TagManager:
   - Baseball
   - TennisRacket
   - BackCollider
+  - LeftSidePlayer
+  - RightSidePlayer
   layers:
   - Default
   - TransparentFX

@@ -25,13 +25,23 @@ public class RandomObject : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer.Equals(9))
+        if (other.gameObject.tag.Equals("LeftSidePlayer"))
+        {
+            Debug.Log("from left side");
+            EventManager.Instance.TookObject(gameObject,0);
+        }
+        else if (other.gameObject.tag.Equals("RightSidePlayer"))
+        {
+            Debug.Log("from right side");
+            EventManager.Instance.TookObject(gameObject,1);
+        }
+        /*if (other.gameObject.layer.Equals(9))
         {
             //Debug.Log("i am here");
             
-            EventManager.Instance.TookObject(gameObject);
-
-        }
+            
+        }*/
+        
     }
     
 }

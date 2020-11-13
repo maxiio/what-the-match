@@ -20,10 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fb34233-304f-40f8-a6a5-c0072cd7a0cf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Head Ball 3D/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Head Ball 3D/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Head Ball 3D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Head Ball 3D/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimationsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimationsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BallController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BallController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ParticleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ParticleManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +42,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/OpponentAnimationsManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimationsManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../Unity Projects/Fruit Catch 3D/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Unity Projects/Fruit Catch 3D/Assets/Scripts/LevelManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Unity Projects/Fruit Catch 3D/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectGenerator.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -67,14 +74,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectTriggerCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/OpponentAnimationsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/ShaderTEST.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ParticleManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BallController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AnimationsManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlayerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Baseball.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ParticleManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BallController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Baseball.cs" />
+        <option value="$PROJECT_DIR$/Assets/MiddleCollider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EventManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Random Object Scripts/RandomObjectManager.cs" />
       </list>
     </option>
   </component>
@@ -138,7 +149,7 @@
       <workItem from="1605028409196" duration="6097000" />
       <workItem from="1605191990965" duration="636000" />
       <workItem from="1605203799703" duration="18152000" />
-      <workItem from="1605262535028" duration="3656000" />
+      <workItem from="1605262535028" duration="10213000" />
     </task>
     <servers />
   </component>
