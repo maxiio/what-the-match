@@ -10,6 +10,7 @@ public class AnimationsManager : MonoBehaviour
     public static AnimationsManager Instance;
 
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject currentLevelText;
 
     private void Awake()
     {

@@ -58,6 +58,11 @@
             </e>
           </e>
         </e>
+        <e p="Fonts" t="Include">
+          <e p="Baloo_Bhai_2" t="Include">
+            <e p="OFL.txt" t="Include" />
+          </e>
+        </e>
         <e p="JMO Assets" t="Include">
           <e p="Cartoon FX" t="Include">
             <e p="CartoonFX Free.txt" t="Include" />
