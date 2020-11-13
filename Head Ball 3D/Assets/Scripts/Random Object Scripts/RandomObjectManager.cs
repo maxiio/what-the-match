@@ -23,7 +23,7 @@ public class RandomObjectManager : MonoBehaviour
     private void ObjectTaked(GameObject obj,int whichhand)
     {
         //Debug.Log(obj);
-        Debug.Log(States.Instance.playerState);
+        
         if (States.Instance.playerState == States.PlayerState.Free)
         {
             if (whichhand == 0)
@@ -32,13 +32,13 @@ public class RandomObjectManager : MonoBehaviour
                 {
                     baseballL.SetActive(true);
                     States.Instance.ObjectTaked(obj);
-                    Destroy(obj);
+                    obj.gameObject.SetActive(false);
                 }
                 else if (obj.tag.Equals("TennisRacket"))
                 {
                     tennisRacketL.SetActive(true);
                     States.Instance.ObjectTaked(obj);
-                    Destroy(obj);
+                    obj.gameObject.SetActive(false);
                 }
             }
             else if (whichhand == 1)
@@ -47,13 +47,13 @@ public class RandomObjectManager : MonoBehaviour
                 {
                     baseballR.SetActive(true);
                     States.Instance.ObjectTaked(obj);
-                    Destroy(obj);
+                    obj.gameObject.SetActive(false);
                 }
                 else if (obj.tag.Equals("TennisRacket"))
                 {
                     tennisRacketR.SetActive(true);
                     States.Instance.ObjectTaked(obj);
-                    Destroy(obj);
+                    obj.gameObject.SetActive(false);
                 }
             }
             

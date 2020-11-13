@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private BallController ballController;
+    [SerializeField] private OpponentAI opponentAI;
 
     private void Awake()
     {
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
         playerInput.enabled = false;
         playerMovement.enabled = false;
         ballController.enabled = false;
+        opponentAI.enabled = false;
     }
 
     private void ActivateScripts()
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
         playerInput.enabled = true;
         playerMovement.enabled = true;
         ballController.enabled = true;
+        opponentAI.enabled = true;
     }
     
     private void OnApplicationQuit()

@@ -24,6 +24,7 @@ public class ParticleManager : MonoBehaviour
         SingletonPattern();
         EventManager.Instance.OnPlayerCollideWithBall += ShootEffect;
         EventManager.Instance.OnOpponentCollideWithBall += ShootEffectOpponent;
+        //EventManager.Instance.OnBaseballCollideWithBall += BaseballEffect;
     }
     
     
@@ -47,16 +48,9 @@ public class ParticleManager : MonoBehaviour
 
     public void ShootEffect()
     {
-        if (States.Instance.playerState == States.PlayerState.Free)
-        {
-            hitTheBall.GetComponent<ParticleSystem>().Play();
-            hitTheBall2.GetComponent<ParticleSystem>().Play();
-        }
-        else if (States.Instance.playerState == States.PlayerState.Baseball)
-        {
-            hitTheBallTennis.GetComponent<ParticleSystem>().Play();
-        }
-       
+        hitTheBall.GetComponent<ParticleSystem>().Play();
+        hitTheBall2.GetComponent<ParticleSystem>().Play();
+        //hitTheBallTennis.GetComponent<ParticleSystem>().Play();
     }
     
     public void ShootEffectOpponent()
@@ -64,5 +58,8 @@ public class ParticleManager : MonoBehaviour
         hitTheBallOp.GetComponent<ParticleSystem>().Play();
         hitTheBallOp2.GetComponent<ParticleSystem>().Play();
     }
+    
+    
+   
     
 }

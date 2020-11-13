@@ -7,17 +7,7 @@ public class MiddleCollider : MonoBehaviour
 {
     [SerializeField] private GameObject forcePlace;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+ 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer.Equals(9))

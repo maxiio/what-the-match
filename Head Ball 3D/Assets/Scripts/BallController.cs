@@ -40,10 +40,13 @@ public class BallController : MonoBehaviour
     public Vector3 finalPosition;
 
     [Header("Players")]
-    public GameObject player;
-    public GameObject opponent;
+    public GameObject playerHead;
+    public GameObject opponentMain;
     public GameObject opponentHead;
-    public GameObject playerHand;
+    public GameObject playerRightHand;
+    public GameObject playerLeftHand;
+    Vector3 headForce = new Vector3(0,0,4f);
+    Vector3 handForce = new Vector3(0,0,4f);
     
     [Header("Ring")]
     public GameObject ring;
@@ -70,9 +73,6 @@ public class BallController : MonoBehaviour
     private void Start()
     {
         rigidbody = gameObject.GetComponent<Rigidbody>();
-        EventManager.Instance.OnPlayerCollideWithBall += HeadForcePlayer;
-        EventManager.Instance.OnOpponentCollideWithBall += HeadForceOpponent;
-
         StartShoot();
     }
 
@@ -153,6 +153,8 @@ public class BallController : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             EventManager.Instance.PlayerCollideWithBall();
+            
+            playerHead.transform.position -= headForce;
         
             turn = BallState.PlayerShoot;
 
@@ -160,12 +162,39 @@ public class BallController : MonoBehaviour
             
             SetRingPosition(0.94f);
 
-            opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);
-        } 
+            opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
+        }
+
+        if (other.name.Equals("BaseballbatL") || other.name.Equals("BaseballbatR"))
+        {
+            
+            if (other.name.Equals("BaseballbatL"))
+            {
+                EventManager.Instance.BaseballCollideWithBall();
+                playerLeftHand.transform.position -= handForce; 
+            }
+            else if (other.name.Equals("BaseballbatR"))
+            {
+                EventManager.Instance.BaseballCollideWithBall();
+                playerRightHand.transform.position -= handForce; 
+            }
+            
+            
+            turn = BallState.PlayerShoot;
+
+            Shoot(BallState.PlayerShoot, other);
+            
+            SetRingPosition(0.94f);
+
+            opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
+        
+        }
         
         if (other.tag.Equals("Opponent"))
         {
             EventManager.Instance.OpponentCollideWithBall();
+
+            opponentHead.transform.position -= headForce;
             
             turn = BallState.OpponentShoot;
 
@@ -173,7 +202,7 @@ public class BallController : MonoBehaviour
             
             SetRingPosition(0.94f);
             
-            opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);
+            opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
         }
     }
 
@@ -184,11 +213,11 @@ public class BallController : MonoBehaviour
         {
             if (Random.value > 0.8f)
             {
-                if (opponent.transform.position.x < 0)
+                if (opponentMain.transform.position.x < 0)
                 {
                     ThrowBall(pitchHalfWidth - (7 / Mathf.Clamp(difficulty / 2, 1f, 7f)), pitchHalfWidth - (5 / Mathf.Clamp(difficulty / 2, 1f, 5f)));
                 }
-                else if (opponent.transform.position.x >= 0)
+                else if (opponentMain.transform.position.x >= 0)
                 {
                     ThrowBall(-pitchHalfWidth + (7 / Mathf.Clamp(difficulty / 2, 1f, 7f)), -pitchHalfWidth + (5 / Mathf.Clamp(difficulty / 2, 1f, 5f)));
                 }
@@ -330,7 +359,7 @@ public class BallController : MonoBehaviour
 
     private void StartShoot()
     {
-        Debug.Log("match startred");
+        //Debug.Log("match startred");
         turn = BallState.OpponentShoot;
         transform.position = new Vector3(0, 16.7f, 5);
 
@@ -339,29 +368,7 @@ public class BallController : MonoBehaviour
             
         SetRingPosition(0.94f);
 
-        opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);
-    }
-
-    public void HeadForcePlayer()
-    {
-        if (States.Instance.playerState == States.PlayerState.Free)
-        {
-            Vector3 headForce = new Vector3(0,0,4f);
-            Debug.Log("head force added");
-            player.transform.position -= headForce;
-        }
-        else if (States.Instance.playerState == States.PlayerState.Baseball)
-        {
-            Vector3 handForce = new Vector3(0,0,4f);
-            playerHand.transform.position -= handForce;
-        }
-        
+        opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
     }
     
-    public void HeadForceOpponent()
-    {
-        Vector3 headForce = new Vector3(0,0,3f);
-        Debug.Log("head force added");
-        opponentHead.transform.position -= headForce;
-    }
 }

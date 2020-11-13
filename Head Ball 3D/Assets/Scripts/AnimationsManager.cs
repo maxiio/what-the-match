@@ -60,6 +60,7 @@ public class AnimationsManager : MonoBehaviour
     public void NewObjectCreated(GameObject obj)
     {
         Sequence objSeq = DOTween.Sequence();
+        //Debug.Log("obje var mi yok mu" + obj );
         if (obj != null)
         {
             objSeq.Append(obj.transform.DOPunchScale(new Vector3(.5f, .5f, .5f), .5f));
@@ -71,6 +72,5 @@ public class AnimationsManager : MonoBehaviour
     public void GameStartText()
     {
         currentLevelText.transform.DOScale(1f,1f).SetEase(Ease.OutBounce).OnComplete((() => currentLevelText.transform.DOScale(0f,.5f)));
-        
     }
 }

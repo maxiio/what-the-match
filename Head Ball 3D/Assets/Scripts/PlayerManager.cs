@@ -11,19 +11,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Material ballNormalEffect;
     [SerializeField] private GameObject ball;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+ 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if(other.tag.Equals("Ball"))
         {
@@ -37,5 +27,5 @@ public class PlayerManager : MonoBehaviour
                ball.gameObject.GetComponent<TrailRenderer>().material = ballNormalEffect;
             }
         }
-    }
+    }*/
 }
