@@ -25,12 +25,6 @@ public class ParticleManager : MonoBehaviour
         EventManager.Instance.OnPlayerCollideWithBall += ShootEffect;
         EventManager.Instance.OnOpponentCollideWithBall += ShootEffectOpponent;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     
     #region Singleton
