@@ -72,6 +72,8 @@ public class BallController : MonoBehaviour
         rigidbody = gameObject.GetComponent<Rigidbody>();
         EventManager.Instance.OnPlayerCollideWithBall += HeadForcePlayer;
         EventManager.Instance.OnOpponentCollideWithBall += HeadForceOpponent;
+
+        StartShoot();
     }
 
     private void Update()
@@ -324,6 +326,20 @@ public class BallController : MonoBehaviour
     private Vector3 CalculateQuadraticBezierCurve(float t, Vector3 point1, Vector3 point2, Vector3 point3)
     {
         return (((1 - t) * (1 - t)) * point1) + (2 * (1 - t) * t * point2) + ((t*t) * point3);
+    }
+
+    private void StartShoot()
+    {
+        Debug.Log("match startred");
+        turn = BallState.OpponentShoot;
+        transform.position = new Vector3(0, 16.7f, 5);
+
+        //ThrowBall(new Vector3(0, 7.5f, 29), new Vector3(0, 30, 0), new Vector3(-4, 1.25f, -27));
+        ThrowBall(-5, 5);
+            
+        SetRingPosition(0.94f);
+
+        opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);
     }
 
     public void HeadForcePlayer()
