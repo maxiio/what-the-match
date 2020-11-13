@@ -24,6 +24,7 @@ public class AnimationsManager : MonoBehaviour
         EventManager.Instance.OnPlayerMoved += PlayerMoving;
         EventManager.Instance.OnPlayerStopped += PlayerStopped;
         EventManager.Instance.OnObjectCreated += NewObjectCreated;
+        EventManager.Instance.OnGameStarted += GameStartText;
     }
     
     #region Singleton
@@ -65,5 +66,11 @@ public class AnimationsManager : MonoBehaviour
             obj.transform.DOMoveY(3f, 1f).SetLoops(10,LoopType.Yoyo);
         }
     
+    }
+
+    public void GameStartText()
+    {
+        currentLevelText.transform.DOScale(1f,1f).SetEase(Ease.OutBounce).OnComplete((() => currentLevelText.transform.DOScale(0f,.5f)));
+        
     }
 }
