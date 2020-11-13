@@ -8,6 +8,8 @@ public class ParticleManager : MonoBehaviour
 
     [SerializeField] private GameObject hitTheBall;
     [SerializeField] private GameObject hitTheBall2;
+
+    [SerializeField] private GameObject hitTheBallTennis;    
     
     [SerializeField] private GameObject hitTheBallOp;
     [SerializeField] private GameObject hitTheBallOp2;
@@ -51,8 +53,16 @@ public class ParticleManager : MonoBehaviour
 
     public void ShootEffect()
     {
-        hitTheBall.GetComponent<ParticleSystem>().Play();
-        hitTheBall2.GetComponent<ParticleSystem>().Play();
+        if (States.Instance.playerState == States.PlayerState.Free)
+        {
+            hitTheBall.GetComponent<ParticleSystem>().Play();
+            hitTheBall2.GetComponent<ParticleSystem>().Play();
+        }
+        else if (States.Instance.playerState == States.PlayerState.Baseball)
+        {
+            hitTheBallTennis.GetComponent<ParticleSystem>().Play();
+        }
+       
     }
     
     public void ShootEffectOpponent()

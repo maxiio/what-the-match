@@ -321,15 +321,18 @@
         <e p="Scripts" t="Include">
           <e p="AnimationsManager.cs" t="Include" />
           <e p="BallController.cs" t="Include" />
+          <e p="Baseball.cs" t="Include" />
           <e p="CameraManager.cs" t="Include" />
           <e p="CircleScript.cs" t="Include" />
           <e p="EventManager.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="LevelManager.cs" t="Include" />
+          <e p="MiddleCollider.cs" t="Include" />
           <e p="OpponentAI.cs" t="Include" />
           <e p="OpponentAnimationsManager.cs" t="Include" />
           <e p="ParticleManager.cs" t="Include" />
           <e p="PlayerInput.cs" t="Include" />
+          <e p="PlayerManager.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="Random Object Scripts" t="Include">
             <e p="RandomObject.cs" t="Include" />

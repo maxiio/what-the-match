@@ -43,6 +43,7 @@ public class BallController : MonoBehaviour
     public GameObject player;
     public GameObject opponent;
     public GameObject opponentHead;
+    public GameObject playerHand;
     
     [Header("Ring")]
     public GameObject ring;
@@ -56,6 +57,7 @@ public class BallController : MonoBehaviour
     private Vector3 destination;
     private Rigidbody rigidbody;
     private Vector3 collisionPoint;
+
     
     public enum BallState
     {
@@ -114,6 +116,7 @@ public class BallController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.name.Equals("Ground"))
         {
             turn = BallState.OpponentShoot;
@@ -306,9 +309,18 @@ public class BallController : MonoBehaviour
 
     public void HeadForcePlayer()
     {
-        Vector3 headForce = new Vector3(0,0,4f);
-        Debug.Log("head force added");
-        player.transform.position -= headForce;
+        if (States.Instance.playerState == States.PlayerState.Free)
+        {
+            Vector3 headForce = new Vector3(0,0,4f);
+            Debug.Log("head force added");
+            player.transform.position -= headForce;
+        }
+        else if (States.Instance.playerState == States.PlayerState.Baseball)
+        {
+            Vector3 handForce = new Vector3(0,0,4f);
+            playerHand.transform.position -= handForce;
+        }
+        
     }
     
     public void HeadForceOpponent()
