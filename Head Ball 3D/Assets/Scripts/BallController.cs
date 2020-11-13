@@ -116,16 +116,35 @@ public class BallController : MonoBehaviour
     {
         if (other.name.Equals("Ground"))
         {
-            turn = BallState.OpponentShoot;
+            /*turn = BallState.OpponentShoot;
 
             //ThrowBall(new Vector3(0, 7.5f, 29), new Vector3(0, 30, 0), new Vector3(-4, 1.25f, -27));
             ThrowBall(-5, 5);
             
             SetRingPosition(0.94f);
 
-            opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);
+            opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);*/
+            if (turn == BallState.OpponentShoot)
+            {
+                EventManager.Instance.OpponentWin();
+            } else
+            {
+                EventManager.Instance.PlayerWin();
+            }
         }
-        
+
+        if (other.name.Equals("OutGround"))
+        {
+            if (turn == BallState.OpponentShoot)
+            {
+                EventManager.Instance.PlayerWin();
+            }
+            else
+            {
+                EventManager.Instance.OpponentWin();
+            }
+        }
+
         if (other.tag.Equals("Player"))
         {
             EventManager.Instance.PlayerCollideWithBall();

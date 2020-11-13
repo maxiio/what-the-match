@@ -7,12 +7,16 @@ using UnityEngine;
 public class OpponentAI : MonoBehaviour
 {
     public float speed;
+    public float rePositionSpeed;
+    public float notCatchSpeed;
 
     public GameObject ball;
 
     private BallController ballController;
 
     private Vector2 destination;
+
+    private float spd;
 
     private Rigidbody rigidbody;
     private Vector2 units;
@@ -73,10 +77,24 @@ public class OpponentAI : MonoBehaviour
         ));
         */
 
+        if (ballController.turn == BallController.BallState.OpponentShoot)
+        {
+            spd = rePositionSpeed;
+        } else if (ballController.turn == BallController.BallState.PlayerShoot)
+        {
+            if (Mathf.Abs(ballController.ringPosition.x) - Mathf.Abs(transform.position.x) < 10 + (15 / (10 - ballController.difficulty)))
+            {
+                spd = speed;
+            } else
+            {
+                spd = notCatchSpeed;
+            }
+        }
+
         rigidbody.MovePosition(new Vector3(
-            transform.position.x + (units.x * speed * Time.fixedDeltaTime),
+            transform.position.x + (units.x * spd * Time.fixedDeltaTime),
             transform.position.y,
-            transform.position.z + (units.y * speed * Time.fixedDeltaTime)
+            transform.position.z + (units.y * spd * Time.fixedDeltaTime)
         ));
     }
 

@@ -52,7 +52,6 @@ public class PlayerInput : MonoBehaviour
         if (TouchedFirstTime == true)
         {
             CameraManager.Instance.dynamicCam = true;
-            //Debug.Log("i touched");
             TouchedFirstTime = false;
         }
     }

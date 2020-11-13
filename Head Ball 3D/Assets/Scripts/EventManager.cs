@@ -47,8 +47,9 @@ public class EventManager : MonoBehaviour
     public event Action<GameObject> OnObjectCreated;
     public event Action<GameObject> OnTakingObject;
 
+    public event Action OnPlayerWin;
+    public event Action OnOpponentWin;
 
- 
 
     // Functions
     public void StartGame()
@@ -95,7 +96,17 @@ public class EventManager : MonoBehaviour
     {
         OnOpponentStopped?.Invoke();
     }
-    
+
+    public void PlayerWin()
+    {
+        OnPlayerWin?.Invoke();
+    }
+
+    public void OpponentWin()
+    {
+        OnOpponentWin?.Invoke();
+    }
+
     public void ObjectCreated(GameObject obj)
     {
         OnObjectCreated?.Invoke(obj);
