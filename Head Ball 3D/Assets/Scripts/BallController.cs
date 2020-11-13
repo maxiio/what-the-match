@@ -42,6 +42,7 @@ public class BallController : MonoBehaviour
     [Header("Players")]
     public GameObject player;
     public GameObject opponent;
+    public GameObject opponentHead;
     
     [Header("Ring")]
     public GameObject ring;
@@ -67,7 +68,8 @@ public class BallController : MonoBehaviour
     private void Start()
     {
         rigidbody = gameObject.GetComponent<Rigidbody>();
-        EventManager.Instance.OnPlayerCollideWithBall += HeadForce;
+        EventManager.Instance.OnPlayerCollideWithBall += HeadForcePlayer;
+        EventManager.Instance.OnOpponentCollideWithBall += HeadForceOpponent;
     }
 
     private void Update()
@@ -139,6 +141,8 @@ public class BallController : MonoBehaviour
         
         if (other.tag.Equals("Opponent"))
         {
+            EventManager.Instance.OpponentCollideWithBall();
+            
             turn = BallState.OpponentShoot;
 
             Shoot(BallState.OpponentShoot, other);
@@ -300,10 +304,17 @@ public class BallController : MonoBehaviour
         return (((1 - t) * (1 - t)) * point1) + (2 * (1 - t) * t * point2) + ((t*t) * point3);
     }
 
-    public void HeadForce()
+    public void HeadForcePlayer()
+    {
+        Vector3 headForce = new Vector3(0,0,4f);
+        Debug.Log("head force added");
+        player.transform.position -= headForce;
+    }
+    
+    public void HeadForceOpponent()
     {
         Vector3 headForce = new Vector3(0,0,3f);
         Debug.Log("head force added");
-        player.transform.position -= headForce;
+        opponentHead.transform.position -= headForce;
     }
 }

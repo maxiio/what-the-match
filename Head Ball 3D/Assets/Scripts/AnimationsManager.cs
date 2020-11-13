@@ -57,7 +57,12 @@ public class AnimationsManager : MonoBehaviour
 
     public void NewObjectCreated(GameObject obj)
     {
-        if(obj.activeSelf)
-        obj.transform.DOLocalMoveY(.7f, 1f).OnComplete((() => obj.AddComponent<Rigidbody>()));
+        Sequence objSeq = DOTween.Sequence();
+        if (obj != null)
+        {
+            objSeq.Append(obj.transform.DOPunchScale(new Vector3(.5f, .5f, .5f), .5f));
+            obj.transform.DOMoveY(3f, 1f).SetLoops(10,LoopType.Yoyo);
+        }
+    
     }
 }

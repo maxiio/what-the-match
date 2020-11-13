@@ -19,7 +19,7 @@ public class RandomObjectGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn",1f,2);
+        InvokeRepeating("Spawn",5f,25);
     }
     
     private void Spawn()
@@ -27,10 +27,10 @@ public class RandomObjectGenerator : MonoBehaviour
         Vector3 origin =  transform.position;
         Vector3 range = transform.localScale / 2.0f;
         Vector3 randomRange = new Vector3(Random.Range(-range.x, range.x),
-            -2f,
+            2f,
             Random.Range(-range.z, range.z));
         Vector3 randomCoordinate = origin + randomRange;
-
+        
         newObj = Instantiate(objectPrefabs[0],randomCoordinate,Quaternion.identity);
     }
     

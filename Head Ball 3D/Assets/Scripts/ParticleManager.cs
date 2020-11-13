@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ParticleManager : MonoBehaviour
@@ -8,6 +9,11 @@ public class ParticleManager : MonoBehaviour
     [SerializeField] private GameObject hitTheBall;
     [SerializeField] private GameObject hitTheBall2;
     
+    [SerializeField] private GameObject hitTheBallOp;
+    [SerializeField] private GameObject hitTheBallOp2;
+    
+
+    
     public static ParticleManager Instance;
     
     // Start is called before the first frame update
@@ -15,6 +21,7 @@ public class ParticleManager : MonoBehaviour
     {
         SingletonPattern();
         EventManager.Instance.OnPlayerCollideWithBall += ShootEffect;
+        EventManager.Instance.OnOpponentCollideWithBall += ShootEffectOpponent;
     }
 
     // Update is called once per frame
@@ -47,4 +54,11 @@ public class ParticleManager : MonoBehaviour
         hitTheBall.GetComponent<ParticleSystem>().Play();
         hitTheBall2.GetComponent<ParticleSystem>().Play();
     }
+    
+    public void ShootEffectOpponent()
+    {
+        hitTheBallOp.GetComponent<ParticleSystem>().Play();
+        hitTheBallOp2.GetComponent<ParticleSystem>().Play();
+    }
+    
 }

@@ -42,6 +42,7 @@ public class EventManager : MonoBehaviour
     
     public event Action OnPlayerShoot;
     public event Action OnPlayerCollideWithBall;
+    public event Action OnOpponentCollideWithBall;
 
     public event Action<GameObject> OnObjectCreated;
     public event Action<GameObject> OnTakingObject;
@@ -68,6 +69,11 @@ public class EventManager : MonoBehaviour
     public void PlayerCollideWithBall()
     {
         OnPlayerCollideWithBall?.Invoke();
+    }
+    
+    public void OpponentCollideWithBall()
+    {
+        OnOpponentCollideWithBall?.Invoke();
     }
 
     public void PlayerMoved(Vector2 destination)

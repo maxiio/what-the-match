@@ -9,6 +9,7 @@ using UnityEngine;
 public class RandomObjectManager : MonoBehaviour
 {
     [SerializeField] private GameObject baseball;
+    [SerializeField] private GameObject tennisRacket;
     
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,19 @@ public class RandomObjectManager : MonoBehaviour
         Debug.Log(States.Instance.playerState);
         if (States.Instance.playerState == States.PlayerState.Free)
         {
-            baseball.SetActive(true);
-            States.Instance.ObjectTaked(obj);
-            Destroy(obj);
+            if (obj.tag.Equals("Baseball"))
+            {
+                baseball.SetActive(true);
+                States.Instance.ObjectTaked(obj);
+                Destroy(obj);
+            }
+            else if (obj.tag.Equals("TennisRacket"))
+            {
+                tennisRacket.SetActive(true);
+                States.Instance.ObjectTaked(obj);
+                Destroy(obj);
+            }
+            
         }
        
     }
