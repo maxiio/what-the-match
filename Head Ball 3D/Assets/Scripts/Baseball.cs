@@ -18,7 +18,13 @@ public class Baseball : MonoBehaviour
             counter++;
             if (counter == 2)
             {
-                States.Instance.playerState = States.PlayerState.Free;
+                if(gameObject.name.Equals("BaseballbatR"))
+                    ParticleManager.Instance.DestroyBaseballR();
+                
+                else if(gameObject.name.Equals("BaseballbatL"))
+                    ParticleManager.Instance.DestroyBaseballL();    
+
+                    States.Instance.playerState = States.PlayerState.Free;
                 gameObject.SetActive(false);
             }
             

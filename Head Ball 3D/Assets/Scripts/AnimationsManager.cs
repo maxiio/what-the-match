@@ -25,6 +25,8 @@ public class AnimationsManager : MonoBehaviour
         EventManager.Instance.OnPlayerStopped += PlayerStopped;
         EventManager.Instance.OnObjectCreated += NewObjectCreated;
         EventManager.Instance.OnGameStarted += GameStartText;
+        EventManager.Instance.OnPlayerWin += PlayerWin;
+        EventManager.Instance.OnOpponentWin += PlayerLose;
     }
     
     #region Singleton
@@ -67,6 +69,16 @@ public class AnimationsManager : MonoBehaviour
             obj.transform.DOMoveY(3f, 1f).SetLoops(10,LoopType.Yoyo);
         }
     
+    }
+
+    public void PlayerWin()
+    {
+        player.GetComponent<Animator>().SetBool("PlayerWin",true);
+    }
+    
+    public void PlayerLose()
+    {
+        player.GetComponent<Animator>().SetBool("PlayerLose",true);
     }
 
     public void GameStartText()

@@ -170,12 +170,12 @@ public class BallController : MonoBehaviour
             
             if (other.name.Equals("BaseballbatL"))
             {
-                EventManager.Instance.BaseballCollideWithBall();
+                EventManager.Instance.BaseballLCollideWithBall();
                 playerLeftHand.transform.position -= handForce; 
             }
             else if (other.name.Equals("BaseballbatR"))
             {
-                EventManager.Instance.BaseballCollideWithBall();
+                EventManager.Instance.BaseballRCollideWithBall();
                 playerRightHand.transform.position -= handForce; 
             }
             

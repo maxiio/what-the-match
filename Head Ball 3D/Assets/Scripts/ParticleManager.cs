@@ -9,7 +9,11 @@ public class ParticleManager : MonoBehaviour
     [SerializeField] private GameObject hitTheBall;
     [SerializeField] private GameObject hitTheBall2;
 
-    [SerializeField] private GameObject hitTheBallTennis;    
+    [SerializeField] private GameObject hitTheBallTennisL;    
+    [SerializeField] private GameObject hitTheBallTennisR;
+    
+    [SerializeField] private GameObject DestroyBaseballEffectL;    
+    [SerializeField] private GameObject DestroyBaseballEffectR;    
     
     [SerializeField] private GameObject hitTheBallOp;
     [SerializeField] private GameObject hitTheBallOp2;
@@ -24,7 +28,8 @@ public class ParticleManager : MonoBehaviour
         SingletonPattern();
         EventManager.Instance.OnPlayerCollideWithBall += ShootEffect;
         EventManager.Instance.OnOpponentCollideWithBall += ShootEffectOpponent;
-        //EventManager.Instance.OnBaseballCollideWithBall += BaseballEffect;
+        EventManager.Instance.OnBaseballRCollideWithBall += BaseballREffect;
+        EventManager.Instance.OnBaseballLCollideWithBall += BaseballLEffect;
     }
     
     
@@ -57,6 +62,26 @@ public class ParticleManager : MonoBehaviour
     {
         hitTheBallOp.GetComponent<ParticleSystem>().Play();
         hitTheBallOp2.GetComponent<ParticleSystem>().Play();
+    }
+
+    public void BaseballREffect()
+    {
+        hitTheBallTennisR.GetComponent<ParticleSystem>().Play();
+    }
+    
+    public void BaseballLEffect()
+    {
+        hitTheBallTennisL.GetComponent<ParticleSystem>().Play();
+    }
+
+    public void DestroyBaseballL()
+    {
+        DestroyBaseballEffectL.GetComponent<ParticleSystem>().Play();
+    }
+    
+    public void DestroyBaseballR()
+    {
+        DestroyBaseballEffectR.GetComponent<ParticleSystem>().Play();
     }
     
     

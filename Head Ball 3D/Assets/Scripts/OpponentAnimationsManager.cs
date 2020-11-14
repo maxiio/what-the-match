@@ -7,7 +7,7 @@ public class OpponentAnimationsManager : MonoBehaviour
 
     public static OpponentAnimationsManager Instance;
 
-    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject Opponent;
 
     private void Awake()
     {
@@ -19,6 +19,8 @@ public class OpponentAnimationsManager : MonoBehaviour
     {
         EventManager.Instance.OnOpponentMoved += OpponentMoving;
         EventManager.Instance.OnOpponentStopped += OpponentStopped;
+        EventManager.Instance.OnOpponentWin += OpponentWin;
+        EventManager.Instance.OnPlayerWin += OpponentLose;
     }
 
     #region Singleton
@@ -41,13 +43,23 @@ public class OpponentAnimationsManager : MonoBehaviour
 
     public void OpponentMoving(Vector2 destination)
     {
-        player.GetComponent<Animator>().SetFloat("VelX", -destination.x);
-        player.GetComponent<Animator>().SetFloat("VelY", destination.y);
+        Opponent.GetComponent<Animator>().SetFloat("VelX", -destination.x);
+        Opponent.GetComponent<Animator>().SetFloat("VelY", destination.y);
     }
 
     public void OpponentStopped()
     {
-        player.GetComponent<Animator>().SetFloat("VelX", 0);
-        player.GetComponent<Animator>().SetFloat("VelY", 0);
+        Opponent.GetComponent<Animator>().SetFloat("VelX", 0);
+        Opponent.GetComponent<Animator>().SetFloat("VelY", 0);
+    }
+
+    public void OpponentWin()
+    {
+        Opponent.GetComponent<Animator>().SetBool("OpponentWin",true);
+    }
+    
+    public void OpponentLose()
+    {
+        Opponent.GetComponent<Animator>().SetBool("OpponentLose",true);
     }
 }
