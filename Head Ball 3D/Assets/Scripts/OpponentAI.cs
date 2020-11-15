@@ -82,7 +82,7 @@ public class OpponentAI : MonoBehaviour
             spd = rePositionSpeed;
         } else if (ballController.turn == BallController.BallState.PlayerShoot)
         {
-            if (Mathf.Abs(ballController.ringPosition.x) - Mathf.Abs(transform.position.x) < 10 + (15 / (10 - ballController.difficulty)))
+            if (Mathf.Abs(ballController.ringPosition.x) - Mathf.Abs(transform.position.x) < 10 + (15 / Mathf.Clamp(10 - ballController.difficulty, 1f, 10f)))
             {
                 spd = speed;
             } else
