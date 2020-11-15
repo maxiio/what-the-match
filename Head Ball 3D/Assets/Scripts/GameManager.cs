@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         EventManager.Instance.OnGameStarted += GameStarted;
-        EventManager.Instance.OnPlayerWin += GameFinished;
-        EventManager.Instance.OnOpponentWin += GameFinished;
+        EventManager.Instance.OnPlayerWin += SomeoneWinRound;
+        EventManager.Instance.OnOpponentWin += SomeoneWinRound;
         EventManager.Instance.OnNextRound += NextRoundPass;
     }
     
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void GameFinished()
+    public void SomeoneWinRound()
     {
         DeactiveScripts();
         StartCoroutine(NextRound());
@@ -98,7 +98,16 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        EventManager.Instance.NextRound();
+        if (ScoreManager.Instance.playerCounter == 3 || ScoreManager.Instance.opponentCounter == 3)
+        {
+            
+        }
+        else
+        {
+            EventManager.Instance.NextRound();
+        }
+
+       
     }
 
     public void NextRoundPass()
