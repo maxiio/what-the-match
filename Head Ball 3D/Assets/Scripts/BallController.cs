@@ -262,10 +262,10 @@ public class BallController : MonoBehaviour
         
         if (other.tag.Equals("Opponent"))
         {
-            if (States.Instance.playerState == States.PlayerState.Baseball)
+            /*if (States.Instance.playerState == States.PlayerState.Baseball)
             {
                 OpponentAnimationsManager.Instance.Fall();
-            }
+            }*/
             gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
             EventManager.Instance.OpponentCollideWithBall();
 
