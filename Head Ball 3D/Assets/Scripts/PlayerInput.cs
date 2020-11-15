@@ -10,8 +10,6 @@ public class PlayerInput : MonoBehaviour
     private Vector2 destination;
     private bool IsTouchEnded = true;
     private bool TouchedFirstTime = false;
-    private bool inLine = false;
-    private bool swipe = false;
 
     private void Start()
     {
@@ -29,34 +27,11 @@ public class PlayerInput : MonoBehaviour
             startPosition = touch.position;
 
             TouchedFirstTime = true;
-
-            if (touch.position.x < Screen.width / 4 || touch.position.x > Screen.width - (Screen.width / 4))
-            {
-                inLine = false;
-            }
-
-            inLine = true;
         }
 
         if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
         {
-            if (inLine)
-            {
-                if (touch.position.x < Screen.width / 4 || touch.position.x > Screen.width - (Screen.width / 4))
-                {
-                    destination = touch.position - startPosition;
-
-                    swipe = true;
-                } else
-                {
-                    destination = touch.position - new Vector2(Screen.width / 2, Screen.height / 4);
-                    destination *= 2;
-                }
-            }
-            else
-            {
-                destination = touch.position - startPosition;
-            }
+            destination = touch.position - startPosition;
 
             IsTouchEnded = false;
         }
@@ -67,7 +42,6 @@ public class PlayerInput : MonoBehaviour
             startPosition.Set(0, 0);
             destination.Set(0, 0);
             IsTouchEnded = true;
-            swipe = false;
         }
 
     }
