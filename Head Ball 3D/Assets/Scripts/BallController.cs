@@ -381,6 +381,9 @@ public class BallController : MonoBehaviour
         if (turn == BallState.OpponentShoot)
         {
             fallDistance *= -1;
+        } else
+        {
+            EventManager.Instance.PlayerTouch();
         }
 
         startPosition = transform.position;

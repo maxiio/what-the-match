@@ -55,6 +55,8 @@ public class EventManager : MonoBehaviour
     public event Action OnNextRound;
     public event Action OnNextLevel;
 
+    public event Action PlayerShooted;
+
 
     // Functions
     public void StartGame()
@@ -102,6 +104,11 @@ public class EventManager : MonoBehaviour
         OnPlayerStopped?.Invoke();
     }
 
+    public void PlayerTouch()
+    {
+        PlayerShooted?.Invoke();
+    }
+
     public void OpponentMoved(Vector2 destination)
     {
         OnOpponentMoved?.Invoke(destination);
@@ -131,6 +138,7 @@ public class EventManager : MonoBehaviour
 
     public void TookObject(GameObject obj,int hand)
     {
+
         OnTakingObject?.Invoke(obj,hand);
     }
 
