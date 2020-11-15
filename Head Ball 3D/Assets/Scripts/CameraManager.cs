@@ -89,15 +89,20 @@ public class CameraManager : MonoBehaviour
 
     public void NextRound()
     {
-        deadCameraPath.SetActive(true);
-        playerDeadCamera.SetActive(true);
+        playerFarCamera.SetActive(true);
+        playerFollowCameraMiddle.SetActive(false);
+        playerFollowCameraNear1.SetActive(false);
+        playerFollowCameraNear2.SetActive(false);
+        /*deadCameraPath.SetActive(true);
+        playerDeadCamera.SetActive(true);*/
     }
 
     public void NextRoundPass()
     {
-        deadCameraPath.SetActive(false);
-        playerDeadCamera.SetActive(false);
+        /*deadCameraPath.SetActive(false);
+        playerDeadCamera.SetActive(false);*/
         playerFollowCameraMiddle.SetActive(true);
+        playerFarCamera.SetActive(false);
     }
     
 }

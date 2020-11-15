@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody = gameObject.GetComponent<Rigidbody>();
         EventManager.Instance.OnPlayerMoved += MovePlayer;
+        EventManager.Instance.OnNextRound += NextRound;
     }
 
      // sağ üst x 15.58 z 38.79
@@ -36,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Mathf.Lerp(-1, 1, Mathf.InverseLerp(-Screen.height / 4, Screen.height / 4, destination.y));
 
         return new Vector2(horizontal, vertical);
+    }
+    
+    public void NextRound()
+    {
+       units = Vector2.zero;
     }
     
 }

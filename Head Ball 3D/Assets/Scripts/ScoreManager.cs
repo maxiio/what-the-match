@@ -9,8 +9,8 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
-    private int playerCounter = 0;
-    private int opponentCounter = 0;
+    public int playerCounter = 0;
+    public int opponentCounter = 0;
 
     [SerializeField] private GameObject yourScore;
     [SerializeField] private GameObject oppScore;
@@ -56,7 +56,7 @@ public class ScoreManager : MonoBehaviour
 
         if (playerCounter == 3)
         {
-            //EventManager.Instance.PlayerWinMatch;
+            EventManager.Instance.PlayerWinMatch();
         }
     }
 
@@ -69,7 +69,7 @@ public class ScoreManager : MonoBehaviour
 
         if (opponentCounter == 3)
         {
-            //EventManager.Instance.OpponentWinMatch;
+            EventManager.Instance.OpponentWinMatch();
         }
     }
 }

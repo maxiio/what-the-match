@@ -66,7 +66,12 @@ public class OpponentAnimationsManager : MonoBehaviour
     
     public void NextRound()
     {
-        Opponent.GetComponent<Animator>().SetBool("PlayerWin",false);
-        Opponent.GetComponent<Animator>().SetBool("PlayerLose",false);
+        Opponent.GetComponent<Animator>().SetBool("OpponentWin",false);
+        Opponent.GetComponent<Animator>().SetBool("OpponentLose",false);
+    }
+
+    public void Fall()
+    {
+        Opponent.GetComponent<Animator>().SetBool("Fall",true);
     }
 }

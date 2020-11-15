@@ -58,6 +58,9 @@
             </e>
           </e>
         </e>
+        <e p="Confetti FX" t="Include">
+          <e p="readme.txt" t="Include" />
+        </e>
         <e p="Fonts" t="Include">
           <e p="Baloo_Bhai_2" t="Include">
             <e p="OFL.txt" t="Include" />

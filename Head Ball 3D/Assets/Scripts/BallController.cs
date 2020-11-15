@@ -11,6 +11,7 @@ public class BallController : MonoBehaviour
     [Header("Ball Speed")] 
     public float ballSpeed;
     public float opponentBallSpeedMultiplier;
+    public float itemSpeedMultiplier;
     
     [Header("Difficulty (Max difficult 10)")] 
     public float difficulty;
@@ -50,6 +51,8 @@ public class BallController : MonoBehaviour
 
     [SerializeField] private Material normalBallEffect;
     [SerializeField] private Material fastBallEffect;
+
+    private bool isGround = false;
     
     [Header("Ring")]
     public GameObject ring;
@@ -60,6 +63,7 @@ public class BallController : MonoBehaviour
     
     private float time = 0;
     private bool isThrowed = false;
+    private bool isShootWithItem = false;
     private Vector3 destination;
     private Rigidbody rigidbody;
     private Vector3 collisionPoint;
@@ -77,6 +81,7 @@ public class BallController : MonoBehaviour
     {
         rigidbody = gameObject.GetComponent<Rigidbody>();
         StartShoot();
+        EventManager.Instance.OnNextRound += NextRound;
     }
 
     private void Update()
@@ -96,7 +101,15 @@ public class BallController : MonoBehaviour
         }
         else
         {
-            time += ballSpeed * Time.fixedDeltaTime;
+            if (isShootWithItem)
+            {
+                time += ballSpeed * itemSpeedMultiplier * Time.fixedDeltaTime;
+            }
+            else
+            {
+                time += ballSpeed * Time.fixedDeltaTime;                
+            }
+
         }
 
         if (time >= 1) {
@@ -119,11 +132,19 @@ public class BallController : MonoBehaviour
 
     }
 
+    public void NextRound()
+    {
+        isGround = false;
+        
+        StartShoot();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         
         if (other.name.Equals("Ground"))
         {
+            
             /*turn = BallState.OpponentShoot;
 
             //ThrowBall(new Vector3(0, 7.5f, 29), new Vector3(0, 30, 0), new Vector3(-4, 1.25f, -27));
@@ -142,29 +163,31 @@ public class BallController : MonoBehaviour
                 EventManager.Instance.PlayerWin();
             }*/
             
-            if(gameObject.transform.position.z < 0)
+            if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.OpponentWin();
 
 
-            else if (gameObject.transform.position.z > 0)
+            else if (gameObject.transform.position.z > 0 && isGround == false)
             {
                 EventManager.Instance.PlayerWin();
             }
 
-            gameObject.GetComponent<SphereCollider>().enabled = false;
+            isGround = true;
+            
         }
 
         if (other.name.Equals("OutGround"))
         {
-            if(gameObject.transform.position.z < 0)
-                EventManager.Instance.OpponentWin();
-            
-            else if (gameObject.transform.position.z > 0)
-            {
+            Debug.Log("wtf");
+            if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.PlayerWin();
-            }
             
-            gameObject.GetComponent<SphereCollider>().enabled = false;
+            else if (gameObject.transform.position.z > 0 && isGround == false)
+            {
+                EventManager.Instance.OpponentWin();
+            }
+
+            isGround = true;
         }
 
         if (other.tag.Equals("Player"))
@@ -198,10 +221,9 @@ public class BallController : MonoBehaviour
                 EventManager.Instance.BaseballRCollideWithBall();
                 playerRightHand.transform.position -= handForce; 
             }
-            
-            
-            turn = BallState.PlayerShoot;
 
+            turn = BallState.PlayerShoot;
+            
             Shoot(BallState.PlayerShoot, other);
             
             SetRingPosition(0.94f);
@@ -212,6 +234,8 @@ public class BallController : MonoBehaviour
 
         if (other.name.Equals("TennisRacketR") || other.name.Equals("TennisRacketL"))
         {
+            isShootWithItem = true;
+            
             ParticleManager.Instance.FastHitBall();
             gameObject.GetComponent<TrailRenderer>().material = fastBallEffect;
             
@@ -238,9 +262,15 @@ public class BallController : MonoBehaviour
         
         if (other.tag.Equals("Opponent"))
         {
+            if (States.Instance.playerState == States.PlayerState.Baseball)
+            {
+                OpponentAnimationsManager.Instance.Fall();
+            }
             gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
             EventManager.Instance.OpponentCollideWithBall();
 
+            isShootWithItem = false;
+            
             opponentHead.transform.position -= headForce;
             
             turn = BallState.OpponentShoot;

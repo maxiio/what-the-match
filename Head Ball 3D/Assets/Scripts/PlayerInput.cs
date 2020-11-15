@@ -10,7 +10,12 @@ public class PlayerInput : MonoBehaviour
     private Vector2 destination;
     private bool IsTouchEnded = true;
     private bool TouchedFirstTime = false;
-    
+
+    private void Start()
+    {
+        EventManager.Instance.OnNextRound += NextRound;
+    }
+
     private void Update()
     {
         if (Input.touchCount != 1) return;
@@ -54,6 +59,12 @@ public class PlayerInput : MonoBehaviour
             CameraManager.Instance.dynamicCam = true;
             TouchedFirstTime = false;
         }
+    }
+
+    public void NextRound()
+    {
+        startPosition.Set(0, 0);
+        destination.Set(0, 0);
     }
 
     

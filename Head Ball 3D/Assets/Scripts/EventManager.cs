@@ -52,6 +52,9 @@ public class EventManager : MonoBehaviour
     public event Action OnPlayerWin;
     public event Action OnOpponentWin;
 
+    public event Action OnPlayerWinMatch;
+    public event Action OnOpponentWinMatch;
+
     public event Action OnNextRound;
     public event Action OnNextLevel;
 
@@ -150,6 +153,16 @@ public class EventManager : MonoBehaviour
     public void NextLevel()
     {
         OnNextLevel?.Invoke();
+    }
+
+    public void PlayerWinMatch()
+    {
+        OnPlayerWinMatch?.Invoke();
+    }
+    
+    public void OpponentWinMatch()
+    {
+        OnOpponentWinMatch?.Invoke();
     }
     
     
