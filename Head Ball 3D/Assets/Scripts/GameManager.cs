@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private BallController ballController;
     [SerializeField] private OpponentAI opponentAI;
-    [SerializeField] private RandomObjectGenerator randomObjectGenerator;
+    [SerializeField] private GameObject randomObjectManager;
 
     private void Awake()
     {
@@ -23,8 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         EventManager.Instance.OnGameStarted += GameStarted;
-        EventManager.Instance.OnPlayerWin += PlayerWin;
-        EventManager.Instance.OnOpponentWin += OpponentWin;
+        EventManager.Instance.OnGameFinished += GameFinished;
     }
     
     #region Singleton
@@ -56,7 +55,8 @@ public class GameManager : MonoBehaviour
         playerMovement.enabled = false;
         ballController.enabled = false;
         opponentAI.enabled = false;
-        randomObjectGenerator.enabled = false;
+        randomObjectManager.SetActive(false);
+        
     }
 
     private void ActivateScripts()
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         playerMovement.enabled = true;
         ballController.enabled = true;
         opponentAI.enabled = true;
-        randomObjectGenerator.enabled = true;
+        randomObjectManager.SetActive(true);
     }
     
     private void OnApplicationQuit()
@@ -85,13 +85,19 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void PlayerWin()
+    public void GameFinished()
     {
         DeactiveScripts();
+        StartCoroutine(NextRound());
     }
 
-    public void OpponentWin()
+
+    public IEnumerator NextRound()
     {
-        DeactiveScripts();
+        yield return new WaitForSeconds(3f);
+
+        EventManager.Instance.NextRound();
     }
+
+    
 }

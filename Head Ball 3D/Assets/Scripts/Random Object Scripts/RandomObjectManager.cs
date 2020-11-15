@@ -13,6 +13,11 @@ public class RandomObjectManager : MonoBehaviour
     
     [SerializeField] private GameObject baseballL;
     [SerializeField] private GameObject tennisRacketL;
+
+    [SerializeField] private GameObject handBaseballR;
+
+    [SerializeField] private GameObject rightHand;
+    [SerializeField] private GameObject leftHand;
     
     // Start is called before the first frame update
     void Start()
@@ -31,6 +36,8 @@ public class RandomObjectManager : MonoBehaviour
                 if (obj.tag.Equals("Baseball"))
                 {
                     baseballL.SetActive(true);
+                    //Instantiate(handBaseballR, rightHand,quaternion.identity);
+                    //baseballL.GetComponent<ConfigurableJoint>() = baseballLConfg;
                     States.Instance.ObjectTaked(obj);
                     obj.gameObject.SetActive(false);
                 }

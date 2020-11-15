@@ -24,7 +24,7 @@ public class Baseball : MonoBehaviour
                 else if(gameObject.name.Equals("BaseballbatL"))
                     ParticleManager.Instance.DestroyBaseballL();    
 
-                    States.Instance.playerState = States.PlayerState.Free;
+                States.Instance.playerState = States.PlayerState.Free;
                 gameObject.SetActive(false);
             }
             

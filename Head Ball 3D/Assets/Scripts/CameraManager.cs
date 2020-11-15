@@ -16,8 +16,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private GameObject playerFollowCameraMiddle;
     [SerializeField] private GameObject playerFollowCameraNear1;
     [SerializeField] private GameObject playerFollowCameraNear2;
-    //[SerializeField] private GameObject playerDeadCamera;
-    //[SerializeField] private GameObject trackWithCart;
+    [SerializeField] private GameObject playerDeadCamera;
+    [SerializeField] private GameObject deadCameraPath;
 
     private void Awake()
     {
@@ -28,6 +28,7 @@ public class CameraManager : MonoBehaviour
     void Start()
     {
         EventManager.Instance.OnGameStarted += GameStarted;
+        EventManager.Instance.OnGameFinished += GameFinished;
 
         if (playerFollowCameraMiddle.activeSelf)
         {
@@ -82,6 +83,12 @@ public class CameraManager : MonoBehaviour
     {
         playerFarCamera.SetActive(false);
         playerFollowCameraMiddle.SetActive(true);
+    }
+
+    public void GameFinished()
+    {
+        deadCameraPath.SetActive(true);
+        playerDeadCamera.SetActive(true);
     }
     
 }

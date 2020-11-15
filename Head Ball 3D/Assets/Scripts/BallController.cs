@@ -47,6 +47,9 @@ public class BallController : MonoBehaviour
     public GameObject playerLeftHand;
     Vector3 headForce = new Vector3(0,0,4f);
     Vector3 handForce = new Vector3(0,0,4f);
+
+    [SerializeField] private Material normalBallEffect;
+    [SerializeField] private Material fastBallEffect;
     
     [Header("Ring")]
     public GameObject ring;
@@ -129,29 +132,40 @@ public class BallController : MonoBehaviour
             SetRingPosition(0.94f);
 
             opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);*/
-            if (turn == BallState.OpponentShoot)
+            /*if (turn == BallState.OpponentShoot)
             {
+                Debug.Log("opponent win");
                 EventManager.Instance.OpponentWin();
             } else
             {
+                Debug.Log("player win");
+                EventManager.Instance.PlayerWin();
+            }*/
+            
+            if(gameObject.transform.position.z < 0)
+                EventManager.Instance.OpponentWin();
+            
+            else if (gameObject.transform.position.z > 0)
+            {
                 EventManager.Instance.PlayerWin();
             }
+           
         }
 
         if (other.name.Equals("OutGround"))
         {
-            if (turn == BallState.OpponentShoot)
+            if(gameObject.transform.position.z < 0)
+                EventManager.Instance.OpponentWin();
+            
+            else if (gameObject.transform.position.z > 0)
             {
                 EventManager.Instance.PlayerWin();
-            }
-            else
-            {
-                EventManager.Instance.OpponentWin();
             }
         }
 
         if (other.tag.Equals("Player"))
         {
+            gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
             EventManager.Instance.PlayerCollideWithBall();
             
             playerHead.transform.position -= headForce;
@@ -167,7 +181,9 @@ public class BallController : MonoBehaviour
 
         if (other.name.Equals("BaseballbatL") || other.name.Equals("BaseballbatR"))
         {
-            
+            ParticleManager.Instance.FastHitBall();
+            gameObject.GetComponent<TrailRenderer>().material = fastBallEffect;
+                
             if (other.name.Equals("BaseballbatL"))
             {
                 EventManager.Instance.BaseballLCollideWithBall();
@@ -189,9 +205,36 @@ public class BallController : MonoBehaviour
             opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
         
         }
+
+        if (other.name.Equals("TennisRacketR") || other.name.Equals("TennisRacketL"))
+        {
+            ParticleManager.Instance.FastHitBall();
+            gameObject.GetComponent<TrailRenderer>().material = fastBallEffect;
+            
+            if (other.name.Equals("TennisRacketL"))
+            {
+                EventManager.Instance.BaseballLCollideWithBall();
+                playerLeftHand.transform.position -= handForce; 
+            }
+            else if (other.name.Equals("TennisRacketR"))
+            {
+                EventManager.Instance.BaseballRCollideWithBall();
+                playerRightHand.transform.position -= handForce; 
+            }
+            
+            
+            turn = BallState.PlayerShoot;
+
+            Shoot(BallState.PlayerShoot, other);
+            
+            SetRingPosition(0.94f);
+
+            opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
+        }
         
         if (other.tag.Equals("Opponent"))
         {
+            gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
             EventManager.Instance.OpponentCollideWithBall();
 
             opponentHead.transform.position -= headForce;

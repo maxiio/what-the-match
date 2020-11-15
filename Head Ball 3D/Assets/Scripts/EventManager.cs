@@ -52,6 +52,8 @@ public class EventManager : MonoBehaviour
     public event Action OnPlayerWin;
     public event Action OnOpponentWin;
 
+    public event Action OnNextRound;
+
 
     // Functions
     public void StartGame()
@@ -59,10 +61,10 @@ public class EventManager : MonoBehaviour
         OnGameStarted?.Invoke();
     }
 
-    public void FinishGame()
+    /*public void FinishGame()
     {
         OnGameFinished?.Invoke();
-    }
+    }*/
 
     public void PlayerShoot()
     {
@@ -112,11 +114,13 @@ public class EventManager : MonoBehaviour
     public void PlayerWin()
     {
         OnPlayerWin?.Invoke();
+        OnGameFinished?.Invoke();
     }
 
     public void OpponentWin()
     {
         OnOpponentWin?.Invoke();
+        OnGameFinished?.Invoke();
     }
 
     public void ObjectCreated(GameObject obj)
@@ -127,6 +131,11 @@ public class EventManager : MonoBehaviour
     public void TookObject(GameObject obj,int hand)
     {
         OnTakingObject?.Invoke(obj,hand);
+    }
+
+    public void NextRound()
+    {
+        OnNextRound?.Invoke();
     }
     
     

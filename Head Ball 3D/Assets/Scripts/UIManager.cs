@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
        EventManager.Instance.OnGameStarted += GameStarted;
+       EventManager.Instance.OnPlayerWin += PlayerWin;
+       EventManager.Instance.OnOpponentWin += OpponentWin;
         
        inGameCanvas.gameObject.SetActive(false);
        //nextLevelCanvas.gameObject.SetActive(false);
@@ -43,6 +45,16 @@ public class UIManager : MonoBehaviour
     {
         //inGameCanvas.gameObject.SetActive(false);
         nextLevelCanvas.gameObject.SetActive(true);
+    }
+
+    public void PlayerWin()
+    {
+        
+    }
+
+    public void OpponentWin()
+    {
+        
     }
 
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class ParticleManager : MonoBehaviour
     
     [SerializeField] private GameObject hitTheBallOp;
     [SerializeField] private GameObject hitTheBallOp2;
+
+    [SerializeField] private GameObject fastHitBall;
     
 
     
@@ -82,6 +85,11 @@ public class ParticleManager : MonoBehaviour
     public void DestroyBaseballR()
     {
         DestroyBaseballEffectR.GetComponent<ParticleSystem>().Play();
+    }
+
+    public void FastHitBall()
+    {
+        fastHitBall.GetComponent<ParticleSystem>().Play();
     }
     
     
