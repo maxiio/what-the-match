@@ -142,26 +142,9 @@ public class BallController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.name.Equals("Ground"))
+        /*if (other.name.Equals("Ground"))
         {
-            
-            /*turn = BallState.OpponentShoot;
-
-            //ThrowBall(new Vector3(0, 7.5f, 29), new Vector3(0, 30, 0), new Vector3(-4, 1.25f, -27));
-            ThrowBall(-5, 5);
-            
-            SetRingPosition(0.94f);
-
-            opponentFirstPosititon = new Vector2(opponent.transform.position.x, opponent.transform.position.z);*/
-            /*if (turn == BallState.OpponentShoot)
-            {
-                Debug.Log("opponent win");
-                EventManager.Instance.OpponentWin();
-            } else
-            {
-                Debug.Log("player win");
-                EventManager.Instance.PlayerWin();
-            }*/
+           
             
             if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.OpponentWin();
@@ -174,7 +157,7 @@ public class BallController : MonoBehaviour
 
             isGround = true;
             
-        }
+        }*/
 
         if (other.name.Equals("OutGround"))
         {
@@ -411,6 +394,9 @@ public class BallController : MonoBehaviour
         if (turn == BallState.OpponentShoot)
         {
             fallDistance *= -1;
+        } else
+        {
+            EventManager.Instance.PlayerTouch();
         }
 
         startPosition = transform.position;
