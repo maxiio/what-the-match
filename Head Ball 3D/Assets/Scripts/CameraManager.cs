@@ -28,7 +28,9 @@ public class CameraManager : MonoBehaviour
     void Start()
     {
         EventManager.Instance.OnGameStarted += GameStarted;
-        EventManager.Instance.OnGameFinished += GameFinished;
+        EventManager.Instance.OnPlayerWin += NextRound;
+        EventManager.Instance.OnOpponentWin += NextRound;
+        EventManager.Instance.OnNextRound += NextRoundPass;
 
         if (playerFollowCameraMiddle.activeSelf)
         {
@@ -85,10 +87,17 @@ public class CameraManager : MonoBehaviour
         playerFollowCameraMiddle.SetActive(true);
     }
 
-    public void GameFinished()
+    public void NextRound()
     {
         deadCameraPath.SetActive(true);
         playerDeadCamera.SetActive(true);
+    }
+
+    public void NextRoundPass()
+    {
+        deadCameraPath.SetActive(false);
+        playerDeadCamera.SetActive(false);
+        playerFollowCameraMiddle.SetActive(true);
     }
     
 }

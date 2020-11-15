@@ -144,12 +144,14 @@ public class BallController : MonoBehaviour
             
             if(gameObject.transform.position.z < 0)
                 EventManager.Instance.OpponentWin();
-            
+
+
             else if (gameObject.transform.position.z > 0)
             {
                 EventManager.Instance.PlayerWin();
             }
-           
+
+            gameObject.GetComponent<SphereCollider>().enabled = false;
         }
 
         if (other.name.Equals("OutGround"))
@@ -161,6 +163,8 @@ public class BallController : MonoBehaviour
             {
                 EventManager.Instance.PlayerWin();
             }
+            
+            gameObject.GetComponent<SphereCollider>().enabled = false;
         }
 
         if (other.tag.Equals("Player"))

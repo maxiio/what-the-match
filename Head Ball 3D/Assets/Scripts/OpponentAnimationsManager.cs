@@ -21,6 +21,7 @@ public class OpponentAnimationsManager : MonoBehaviour
         EventManager.Instance.OnOpponentStopped += OpponentStopped;
         EventManager.Instance.OnOpponentWin += OpponentWin;
         EventManager.Instance.OnPlayerWin += OpponentLose;
+        EventManager.Instance.OnNextRound += NextRound;
     }
 
     #region Singleton
@@ -61,5 +62,11 @@ public class OpponentAnimationsManager : MonoBehaviour
     public void OpponentLose()
     {
         Opponent.GetComponent<Animator>().SetBool("OpponentLose",true);
+    }
+    
+    public void NextRound()
+    {
+        Opponent.GetComponent<Animator>().SetBool("PlayerWin",false);
+        Opponent.GetComponent<Animator>().SetBool("PlayerLose",false);
     }
 }

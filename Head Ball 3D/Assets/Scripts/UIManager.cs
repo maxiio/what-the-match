@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Canvas inGameCanvas;
     [SerializeField] private Canvas mainMenuCanvas;
     [SerializeField] private Canvas nextLevelCanvas;
-    [SerializeField] private Canvas deadCanvas;
+    [SerializeField] private Canvas scoreCanvas;
     private void Awake()
     {
         SingletonPattern();
@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
        EventManager.Instance.OnGameStarted += GameStarted;
        EventManager.Instance.OnPlayerWin += PlayerWin;
        EventManager.Instance.OnOpponentWin += OpponentWin;
+       EventManager.Instance.OnNextRound += NextRound;
         
        inGameCanvas.gameObject.SetActive(false);
        //nextLevelCanvas.gameObject.SetActive(false);
@@ -49,12 +50,17 @@ public class UIManager : MonoBehaviour
 
     public void PlayerWin()
     {
-        
+        scoreCanvas.gameObject.SetActive(true);   
     }
 
     public void OpponentWin()
     {
-        
+        scoreCanvas.gameObject.SetActive(true);   
+    }
+
+    public void NextRound()
+    {
+        scoreCanvas.gameObject.SetActive(false);
     }
 
 

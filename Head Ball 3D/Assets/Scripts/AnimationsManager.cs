@@ -27,6 +27,7 @@ public class AnimationsManager : MonoBehaviour
         EventManager.Instance.OnGameStarted += GameStartText;
         EventManager.Instance.OnPlayerWin += PlayerWin;
         EventManager.Instance.OnOpponentWin += PlayerLose;
+        EventManager.Instance.OnNextRound += NextRound;
     }
     
     #region Singleton
@@ -84,5 +85,11 @@ public class AnimationsManager : MonoBehaviour
     public void GameStartText()
     {
         currentLevelText.transform.DOScale(1f,1f).SetEase(Ease.OutBounce).OnComplete((() => currentLevelText.transform.DOScale(0f,.5f)));
+    }
+
+    public void NextRound()
+    {
+        player.GetComponent<Animator>().SetBool("PlayerWin",false);
+        player.GetComponent<Animator>().SetBool("PlayerLose",false);
     }
 }

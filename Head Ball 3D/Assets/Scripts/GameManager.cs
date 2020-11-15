@@ -23,7 +23,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         EventManager.Instance.OnGameStarted += GameStarted;
-        EventManager.Instance.OnGameFinished += GameFinished;
+        EventManager.Instance.OnPlayerWin += GameFinished;
+        EventManager.Instance.OnOpponentWin += GameFinished;
+        EventManager.Instance.OnNextRound += NextRoundPass;
     }
     
     #region Singleton
@@ -97,6 +99,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         EventManager.Instance.NextRound();
+    }
+
+    public void NextRoundPass()
+    {
+        ActivateScripts();
     }
 
     

@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
     private int currentLevel;
+ 
 
     [SerializeField] private GameObject currentLevelText;
 
@@ -17,6 +18,7 @@ public class LevelManager : MonoBehaviour
         SingletonPattern();
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         EventManager.Instance.OnGameStarted += GameStartLevelText;
+        
         //EventManager.Instance.GameStarted += LoadNextLevel;
     }
 
@@ -52,5 +54,7 @@ public class LevelManager : MonoBehaviour
     {
         currentLevelText.GetComponent<Text>().text = "Level " + currentLevel.ToString();
     }
+
+   
 
 }
