@@ -24,11 +24,13 @@ public class PlayerMovement : MonoBehaviour
     {
         units = CalculateUnits(destination);
 
-        rigidbody.MovePosition(new Vector3(
-            transform.position.x + (units.x * speed * Time.fixedDeltaTime),
-            transform.position.y, 
-            transform.position.z + (units.y * speed * Time.fixedDeltaTime)
-        ));
+            rigidbody.MovePosition(new Vector3(
+                transform.position.x + (units.x * speed * Time.fixedDeltaTime),
+                transform.position.y,
+                transform.position.z + (units.y * speed * Time.fixedDeltaTime)
+            ));
+
+
     }
 
     private Vector2 CalculateUnits(Vector2 destination)
