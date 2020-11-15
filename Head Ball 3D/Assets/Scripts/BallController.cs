@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using DG.Tweening;
 using RootMotion.Demos;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class BallController : MonoBehaviour
     
     [Header("Max Ball Height")] 
     public float ballHeight;
+    public float ballHeightWithItem;
     
     [Header("Pitch Half-Width")] 
     public float pitchHalfWidth;
@@ -68,7 +70,7 @@ public class BallController : MonoBehaviour
     private Rigidbody rigidbody;
     private Vector3 collisionPoint;
 
-    
+
     public enum BallState
     {
         PlayerShoot,
@@ -142,10 +144,8 @@ public class BallController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        /*if (other.name.Equals("Ground"))
+        if (other.name.Equals("Ground"))
         {
-           
-            
             if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.OpponentWin();
 
@@ -157,7 +157,7 @@ public class BallController : MonoBehaviour
 
             isGround = true;
             
-        }*/
+        }
 
         if (other.name.Equals("OutGround"))
         {
@@ -400,6 +400,7 @@ public class BallController : MonoBehaviour
         }
 
         startPosition = transform.position;
+        
         secondPosition = new Vector3(fallPoint / 2, ballHeight, 0);
         finalPosition = new Vector3(fallPoint, 1.25f, fallDistance);
 
