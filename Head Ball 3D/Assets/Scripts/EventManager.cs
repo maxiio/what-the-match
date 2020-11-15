@@ -46,6 +46,9 @@ public class EventManager : MonoBehaviour
     public event Action OnBaseballRCollideWithBall;
     public event Action OnBaseballLCollideWithBall;
 
+    public event Action OnTennisLCollideWithBall;
+    public event Action OnTennisRCollideWithBall;
+
     public event Action<GameObject> OnObjectCreated;
     public event Action<GameObject,int> OnTakingObject;
 
@@ -95,6 +98,16 @@ public class EventManager : MonoBehaviour
     public void BaseballLCollideWithBall()
     {
         OnBaseballLCollideWithBall?.Invoke();
+    }
+
+    public void TennisLCollideWithBall()
+    {
+        OnTennisLCollideWithBall?.Invoke();
+    }
+
+    public void TennisRCollideWithBall()
+    {
+        OnTennisRCollideWithBall?.Invoke();
     }
 
     public void PlayerMoved(Vector2 destination)

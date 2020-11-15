@@ -10,11 +10,12 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Canvas inGameCanvas;
     [SerializeField] private Canvas mainMenuCanvas;
-    [SerializeField] private Canvas nextLevelCanvas;
     [SerializeField] private Canvas scoreCanvas;
 
-    [SerializeField] private GameObject winText;
     [SerializeField] private GameObject loseText;
+    [SerializeField] private GameObject winText;
+
+  
 
     [SerializeField] private GameObject winButton;
     [SerializeField] private GameObject loseButton;
@@ -52,12 +53,7 @@ public class UIManager : MonoBehaviour
     {
     }
 
-    public void NextLevel()
-    {
-        //inGameCanvas.gameObject.SetActive(false);
-        nextLevelCanvas.gameObject.SetActive(true);
-    }
-
+    
     public void PlayerWin()
     {
         scoreCanvas.gameObject.SetActive(true);   

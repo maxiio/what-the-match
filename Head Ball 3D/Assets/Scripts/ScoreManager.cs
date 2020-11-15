@@ -11,9 +11,15 @@ public class ScoreManager : MonoBehaviour
 
     public int playerCounter = 0;
     public int opponentCounter = 0;
-
-    [SerializeField] private GameObject yourScore;
-    [SerializeField] private GameObject oppScore;
+    
+    
+    [SerializeField] private GameObject P1;
+    [SerializeField] private GameObject P2;
+    [SerializeField] private GameObject P3;
+    
+    [SerializeField] private GameObject O1;
+    [SerializeField] private GameObject O2;
+    [SerializeField] private GameObject O3;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,11 +57,20 @@ public class ScoreManager : MonoBehaviour
     public void AddPlayerScore()
     {
         playerCounter++;
-        yourScore.GetComponent<Text>().text = "YOU : " + playerCounter.ToString();
-        oppScore.GetComponent<Text>().text = "OPPONENT : " + opponentCounter.ToString();
 
+        if (playerCounter == 1)
+        {
+            P1.SetActive(true);
+        }
+        
+        if (playerCounter == 2)
+        {
+            P2.SetActive(true);
+        }
+        
         if (playerCounter == 3)
         {
+            P3.SetActive(true);
             EventManager.Instance.PlayerWinMatch();
         }
     }
@@ -63,12 +78,20 @@ public class ScoreManager : MonoBehaviour
     public void AddOpponentScore()
     {
         opponentCounter++;
+
+        if (opponentCounter == 1)
+        {
+            O1.SetActive(true);
+        }
         
-        yourScore.GetComponent<Text>().text = "YOU : " + playerCounter.ToString();
-        oppScore.GetComponent<Text>().text = "OPPONENT : " + opponentCounter.ToString();
+        if (opponentCounter == 2)
+        {
+            O2.SetActive(true);
+        }
 
         if (opponentCounter == 3)
         {
+            O3.SetActive(true);
             EventManager.Instance.OpponentWinMatch();
         }
     }

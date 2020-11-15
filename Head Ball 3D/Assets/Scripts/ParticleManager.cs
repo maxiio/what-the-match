@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ParticleManager : MonoBehaviour
 {
@@ -10,8 +11,11 @@ public class ParticleManager : MonoBehaviour
     [SerializeField] private GameObject hitTheBall;
     [SerializeField] private GameObject hitTheBall2;
 
-    [SerializeField] private GameObject hitTheBallTennisL;    
-    [SerializeField] private GameObject hitTheBallTennisR;
+    [FormerlySerializedAs("hitTheBallTennisL")] [SerializeField] private GameObject hitTheBallBaseballL;    
+    [FormerlySerializedAs("hitTheBallTennisR")] [SerializeField] private GameObject hitTheBallBaseballR;
+
+    [SerializeField] private GameObject TennisL;
+    [SerializeField] private GameObject TennisR;
     
     [SerializeField] private GameObject DestroyBaseballEffectL;    
     [SerializeField] private GameObject DestroyBaseballEffectR;    
@@ -33,6 +37,8 @@ public class ParticleManager : MonoBehaviour
         EventManager.Instance.OnOpponentCollideWithBall += ShootEffectOpponent;
         EventManager.Instance.OnBaseballRCollideWithBall += BaseballREffect;
         EventManager.Instance.OnBaseballLCollideWithBall += BaseballLEffect;
+        EventManager.Instance.OnTennisLCollideWithBall += TennisLEffect;
+        EventManager.Instance.OnTennisRCollideWithBall += TennisREffect;
     }
     
     
@@ -69,13 +75,15 @@ public class ParticleManager : MonoBehaviour
 
     public void BaseballREffect()
     {
-        hitTheBallTennisR.GetComponent<ParticleSystem>().Play();
+        hitTheBallBaseballR.GetComponent<ParticleSystem>().Play();
     }
     
     public void BaseballLEffect()
     {
-        hitTheBallTennisL.GetComponent<ParticleSystem>().Play();
+        hitTheBallBaseballL.GetComponent<ParticleSystem>().Play();
     }
+    
+    
 
     public void DestroyBaseballL()
     {
@@ -87,9 +95,30 @@ public class ParticleManager : MonoBehaviour
         DestroyBaseballEffectR.GetComponent<ParticleSystem>().Play();
     }
 
+    public void DestroyTennisL()
+    {
+        DestroyBaseballEffectL.GetComponent<ParticleSystem>().Play();
+    }
+    
+    public void DestroyTennisR()
+    {
+        DestroyBaseballEffectR.GetComponent<ParticleSystem>().Play();
+    }
+
+
     public void FastHitBall()
     {
         fastHitBall.GetComponent<ParticleSystem>().Play();
+    }
+
+    public void TennisLEffect()
+    {
+        TennisL.GetComponent<ParticleSystem>().Play();
+    }
+    
+    public void TennisREffect()
+    {
+        TennisR.GetComponent<ParticleSystem>().Play();
     }
     
     

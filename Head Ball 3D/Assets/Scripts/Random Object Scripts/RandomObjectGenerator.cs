@@ -18,7 +18,7 @@ public class RandomObjectGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn",1f,30f);
+        InvokeRepeating("Spawn",3f,10f);
     }
     
     private void Spawn()
@@ -33,7 +33,15 @@ public class RandomObjectGenerator : MonoBehaviour
         if (Mathf.Abs(player.transform.position.x - randomCoordinate.x) > 4 ||
             Mathf.Abs(player.transform.position.z - randomCoordinate.z) > 4)
         {
-            Instantiate(objectPrefabs[0],randomCoordinate,Quaternion.identity);
+            if (LevelManager.Instance.GetCurrentLevel() % 2 == 0)
+            {
+                Instantiate(objectPrefabs[1],randomCoordinate,Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(objectPrefabs[0],randomCoordinate,Quaternion.identity);
+            }
+           
         }
         
        

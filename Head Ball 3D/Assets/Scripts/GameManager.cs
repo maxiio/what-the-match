@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         playerMovement.enabled = false;
         ballController.enabled = false;
         opponentAI.enabled = false;
-        randomObjectManager.SetActive(false);
+       
         
     }
 
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         playerMovement.enabled = true;
         ballController.enabled = true;
         opponentAI.enabled = true;
-        randomObjectManager.SetActive(true);
+        
     }
     
     private void OnApplicationQuit()
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator NextRound()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         if (ScoreManager.Instance.playerCounter == 3 || ScoreManager.Instance.opponentCounter == 3)
         {

@@ -23,8 +23,8 @@ public class RandomObjectManager : MonoBehaviour
     void Start()
     {
         EventManager.Instance.OnTakingObject += ObjectTaked;
-        EventManager.Instance.OnPlayerWin += NextRound;
-        EventManager.Instance.OnOpponentWin += NextRound;
+        //EventManager.Instance.OnPlayerWin += NextRound;
+        //EventManager.Instance.OnOpponentWin += NextRound;
     }
     
     private void ObjectTaked(GameObject obj,int whichhand)
@@ -71,7 +71,7 @@ public class RandomObjectManager : MonoBehaviour
        
     }
 
-    public void NextRound()
+    /*public void NextRound()
     {
         if (baseballL.activeSelf)
         {
@@ -87,7 +87,7 @@ public class RandomObjectManager : MonoBehaviour
         tennisRacketL.SetActive(false);
         tennisRacketR.SetActive(false);
         States.Instance.playerState = States.PlayerState.Free;
-    }
+    }*/
     
 }
 
