@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject winButton;
     [SerializeField] private GameObject loseButton;
+
+    [SerializeField] private GameObject cup;
     
     
     private void Awake()
@@ -79,6 +81,7 @@ public class UIManager : MonoBehaviour
     {
         winButton.SetActive(true);
         winText.SetActive(true);
+        cup.SetActive(true);
     }
 
 

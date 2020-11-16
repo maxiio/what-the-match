@@ -54,29 +54,140 @@ SpriteAtlas:
       enableTightPacking: 0
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: 07ddfd8e8a2f1c444a2789f6ff5ae9d6, type: 3}
-    totalSpriteSurfaceArea: 5108852
+    - {fileID: 102900000, guid: 7e981d95454eee24a8cc9e5efebf7f46, type: 3}
+    - {fileID: 102900000, guid: 536317b466c86a648b88a577971a2ef0, type: 3}
+    totalSpriteSurfaceArea: 4555318
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 3d081a8042d44a641b59743a23d16404, type: 3}
-  - {fileID: 21300000, guid: e6abdc826b4c69443a11ea057a980ef2, type: 3}
-  - {fileID: 21300000, guid: ee4ee04441acb3e4eba323c1db2fe883, type: 3}
-  - {fileID: 21300000, guid: 5ed019264d601244ba35a159c906f4d6, type: 3}
-  - {fileID: 21300000, guid: 936129d775ead034da8ad71ea638faa2, type: 3}
-  - {fileID: 21300000, guid: 62fa7a3803515364ea9d9485cb82d780, type: 3}
-  - {fileID: 21300000, guid: 1a9caa79d8aa8d4488db45fc634a8682, type: 3}
-  - {fileID: 21300000, guid: cbb0c27d248af5a459f0833598c240e1, type: 3}
-  - {fileID: 21300000, guid: d438d7dfdc9501b4db48485eba0a4ef3, type: 3}
+  - {fileID: 21300000, guid: 4e134730a112dec4e8467371c0aceda2, type: 3}
+  - {fileID: 21300000, guid: c620a070aa68db14295638283d8f963f, type: 3}
+  - {fileID: 21300000, guid: 5ba42c904e134c44b9669728f5fc94b1, type: 3}
+  - {fileID: 21300000, guid: 8c30c9d01d995b64ba81b32b88a3d150, type: 3}
+  - {fileID: 21300000, guid: ebc19c21f7b80b84f9e50b5f02a85aef, type: 3}
+  - {fileID: 21300000, guid: 1bc24571541ced84683a9fe5d7589d58, type: 3}
+  - {fileID: 21300000, guid: 824710026b307d94ab3a3f9679e0ee7a, type: 3}
+  - {fileID: 21300000, guid: b2a6ecc213f7c50489b483d21a3b67e6, type: 3}
+  - {fileID: 21300000, guid: 111963f2c7bf0c44c84605e04d851d61, type: 3}
+  - {fileID: 21300000, guid: bba6ca03ebdc27b4cbc2a8e996280b7b, type: 3}
+  - {fileID: 21300000, guid: b77e64136c7b1404fbda896112c6c39a, type: 3}
+  - {fileID: 21300000, guid: 950cc223f0ccb454fbc465474d358735, type: 3}
+  - {fileID: 21300000, guid: f0f7474323b7de24f8819a2ca4ba2fe3, type: 3}
+  - {fileID: 21300000, guid: 7980464428def4046981deb967808daa, type: 3}
+  - {fileID: 21300000, guid: 53b04564ee76a5f44a6eeb0443fd1fc9, type: 3}
+  - {fileID: 21300000, guid: d1332b64b68ede24b9554656e0c2228e, type: 3}
+  - {fileID: 21300000, guid: 0bdbb5949a9dda04dbd602d61c03a648, type: 3}
+  - {fileID: 21300000, guid: a8023ca46de518043a09430f84c63a89, type: 3}
+  - {fileID: 21300000, guid: c4331bb414f561844a2f235b04e04404, type: 3}
+  - {fileID: 21300000, guid: 70c70ad42cab3754bb007a8deeef9ca1, type: 3}
+  - {fileID: 21300000, guid: 00d1b2e4a729ac84083bcc42d652ed29, type: 3}
+  - {fileID: 21300000, guid: 33ef6e351262d8244b3ccac0303540d7, type: 3}
+  - {fileID: 21300000, guid: aa5b428515ab5b843af56b1b1a86002a, type: 3}
+  - {fileID: 21300000, guid: 0bd20eb5b953c7942b5d345086110e42, type: 3}
+  - {fileID: 21300000, guid: c89b3ac57e7c46644a70503903a4fea1, type: 3}
+  - {fileID: 21300000, guid: 3dc65e8631455cd4d8916520d3e2990b, type: 3}
+  - {fileID: 21300000, guid: 9cd3679652c48944a8e43ab8ccafe608, type: 3}
+  - {fileID: 21300000, guid: a07482c6da3510c458382cd04ff0347a, type: 3}
+  - {fileID: 21300000, guid: 6ba2a62783c8a3e42943a53eaa43d258, type: 3}
+  - {fileID: 21300000, guid: b022c627514338746950564b774c4ca9, type: 3}
+  - {fileID: 21300000, guid: a1301347e4a8dc14b8201fd803fa5afe, type: 3}
+  - {fileID: 21300000, guid: 0c6f45571ab60d243a060ab276384af0, type: 3}
+  - {fileID: 21300000, guid: 3d5aea77e56b99b4d9e837124a5ee21f, type: 3}
+  - {fileID: 21300000, guid: 6ef4f7b7567571a47a5f17f7e2c5423d, type: 3}
+  - {fileID: 21300000, guid: 68e26dc779ccf9d46be51e13632635ec, type: 3}
+  - {fileID: 21300000, guid: 0a97b2887f605024390309d9df946d48, type: 3}
+  - {fileID: 21300000, guid: 3701b3d82267b6347977cbd38d77969a, type: 3}
+  - {fileID: 21300000, guid: f2f7b7e8d5d1eda46a7c3468cdf85745, type: 3}
+  - {fileID: 21300000, guid: 12c77e29b093ae3459f9764419477d24, type: 3}
+  - {fileID: 21300000, guid: 597a8de9e2612bf419646cd82de66f34, type: 3}
+  - {fileID: 21300000, guid: 6d5ddaf9d30ea254687e1804686a2606, type: 3}
+  - {fileID: 21300000, guid: 788d992ac879a89469757bd41420e238, type: 3}
+  - {fileID: 21300000, guid: 911dd65a950b4164fbcf2fad2ab31ec2, type: 3}
+  - {fileID: 21300000, guid: 6134f3da095c88a4a90aba0883d8c4f9, type: 3}
+  - {fileID: 21300000, guid: 3e9899da6293f804d928af5b41316f0d, type: 3}
+  - {fileID: 21300000, guid: 2738152b439d83443bbb5c555410c9e9, type: 3}
+  - {fileID: 21300000, guid: 1a6c127b06258f046880d9c3af21eb59, type: 3}
+  - {fileID: 21300000, guid: e20f7e2cd67f04e49b68ffa746f674f3, type: 3}
+  - {fileID: 21300000, guid: e331f5ec78be0494bbedd5c512a6f739, type: 3}
+  - {fileID: 21300000, guid: f2f087fca1036be40a08d450d6c05e36, type: 3}
+  - {fileID: 21300000, guid: df27390d2f68d864a8d0d907559038cf, type: 3}
+  - {fileID: 21300000, guid: 08e32c7de90febf4582d06d65946a591, type: 3}
+  - {fileID: 21300000, guid: e9944d0ea1cca034bacab6d9c4305473, type: 3}
+  - {fileID: 21300000, guid: 8a4d254ef7d98c14ba5207903195c391, type: 3}
+  - {fileID: 21300000, guid: 83dfa67ee404b9347b5bfa9b2c711a94, type: 3}
+  - {fileID: 21300000, guid: 37cda49eb47c1da41bcf972c88e6b5aa, type: 3}
+  - {fileID: 21300000, guid: 24e82bcec6a7b29439b48fbe585aa904, type: 3}
+  - {fileID: 21300000, guid: f80113ee26c688340b312f1b4a0788ba, type: 3}
+  - {fileID: 21300000, guid: 681f5cfe0b3dcab4487b63a423f78fd3, type: 3}
+  - {fileID: 21300000, guid: c22efc3f2930429409681da68ddc3019, type: 3}
+  - {fileID: 21300000, guid: a8653d5f88eeddc419a999485704841e, type: 3}
+  - {fileID: 21300000, guid: 33c5cb9fec6274b4c8fa3a5c103f2afe, type: 3}
+  - {fileID: 21300000, guid: d1e9bedf2e4ee1f4c8b6911a35a51a6a, type: 3}
+  - {fileID: 21300000, guid: 3675fbff22aff6f4883f4de37296ccd5, type: 3}
   m_PackedSpriteNamesToIndex:
-  - "Varl\u0131k 5-8"
-  - photo_2020-11-15_17-34-58
-  - photo_2020-11-15_17-27-19
+  - Button3
+  - Purple Button Open
+  - Crown
+  - Purple Button Start
+  - Ribbon 1
+  - Blue Button Play
+  - Green Buton OK
+  - Yellow Button Skip
+  - Purple Button Continue
+  - Yellow Button Claim
+  - Button2
+  - Yellow Buton OK
+  - Blue Buton OK
+  - Pub Yellow Button Claim
+  - Green Button Claim
+  - Pub Yellow Button Skip
+  - Pub Purple Button Skip
+  - Purple Button Skip
+  - Purple Button Claim
+  - Purple Button Play
+  - Green Button Next
+  - Pub Blue Button Skip
+  - Pub Blue Button Open
+  - Blue Button Claim
+  - Green Button Skip
+  - Pub Purple Button Open
+  - Yellow Button Open
+  - Pub Green Button Claim
+  - Green Button Continue
+  - Pub Green Button Skip
+  - Yellow Button Continue
+  - Blue Button Next
+  - Pub Blue Button Claim
+  - Button5
+  - Green Button Open
+  - Purple Button Next
+  - Purple Button Go
+  - Yellow Button Next
+  - Blue Button Open
+  - White
+  - Blue Button Skip
+  - Green Button Go
+  - Ribbon 2
+  - Ribbon 4
+  - Green Button Play
+  - Pub Green Button Open
+  - Button8
+  - Purple Buton OK
+  - Blue Button Go
+  - Ribbon 3
+  - Blue Button Start
+  - Button7
   - Yellow Button Play
-  - "Varl\u0131k 4-8"
-  - BG
-  - Bronze
-  - Green Elipse
+  - Yellow Button Start
+  - Yellow Button Go
+  - Pub Yellow Button Open
   - Outline
+  - Green Button Start
+  - Button6
+  - Button1
+  - Blue Button Continue
+  - Crown
+  - Button4
+  - Pub Purple Button Claim
   m_Tag: UIAtlas
   m_IsVariant: 0

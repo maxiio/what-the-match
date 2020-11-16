@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using Cinemachine;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -31,6 +32,8 @@ public class CameraManager : MonoBehaviour
         EventManager.Instance.OnPlayerWin += NextRound;
         EventManager.Instance.OnOpponentWin += NextRound;
         EventManager.Instance.OnNextRound += NextRoundPass;
+        EventManager.Instance.OnPlayerWinMatch += PlayerWinCam;
+        EventManager.Instance.OnOpponentWinMatch += PlayerWinCam;
 
         if (playerFollowCameraMiddle.activeSelf)
         {
@@ -103,6 +106,13 @@ public class CameraManager : MonoBehaviour
         playerDeadCamera.SetActive(false);*/
         playerFollowCameraMiddle.SetActive(true);
         playerFarCamera.SetActive(false);
+    }
+
+    public void PlayerWinCam()
+    {
+        deadCameraPath.SetActive(true);
+        playerDeadCamera.SetActive(true);
+        playerDeadCamera.GetComponent<CinemachineVirtualCamera>().Priority = 11;
     }
     
 }

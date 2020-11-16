@@ -24,6 +24,8 @@ public class ParticleManager : MonoBehaviour
     [SerializeField] private GameObject hitTheBallOp2;
 
     [SerializeField] private GameObject fastHitBall;
+
+    [SerializeField] private GameObject confetti;
     
 
     
@@ -39,6 +41,7 @@ public class ParticleManager : MonoBehaviour
         EventManager.Instance.OnBaseballLCollideWithBall += BaseballLEffect;
         EventManager.Instance.OnTennisLCollideWithBall += TennisLEffect;
         EventManager.Instance.OnTennisRCollideWithBall += TennisREffect;
+        EventManager.Instance.OnPlayerWinMatch += PlayerWin;
     }
     
     
@@ -116,6 +119,11 @@ public class ParticleManager : MonoBehaviour
     public void TennisREffect()
     {
         TennisR.GetComponent<ParticleSystem>().Play();
+    }
+
+    public void PlayerWin()
+    {
+        confetti.GetComponent<ParticleSystem>().Play();
     }
     
     
