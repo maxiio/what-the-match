@@ -28,7 +28,7 @@ TagManager:
   - Collision
   - RagdollOpponent
   - RandomObjects
-  - 
+  - inputDetectionLayer
   - 
   - 
   - 
