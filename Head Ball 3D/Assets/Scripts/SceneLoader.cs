@@ -13,16 +13,16 @@ public class SceneLoader : MonoBehaviour
     
     private void LoadSavedScene()
     {
-        if (PlayerPrefs.HasKey("SAVED_LEVEL"))
+        //PlayerPrefs.GetInt("SAVED_LEVEL");
+        if (!(PlayerPrefs.GetInt("SAVED_LEVEL") == 0))
         {
-            int currentLevelIndex = PlayerPrefs.GetInt("SAVED_LEVEL");
-            SceneManager.LoadScene(currentLevelIndex);
-            Debug.Log(currentLevelIndex);
+            SceneManager.LoadScene(PlayerPrefs.GetInt("SAVED_LEVEL"));
         }
+        
         else
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Debug.Log("level yok moruq");
+            PlayerPrefs.SetInt("SAVED_LEVEL", 1); 
+            SceneManager.LoadScene(PlayerPrefs.GetInt("SAVED_LEVEL"));
         }
     }
 

@@ -55,7 +55,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 07ddfd8e8a2f1c444a2789f6ff5ae9d6, type: 3}
-    totalSpriteSurfaceArea: 4858852
+    totalSpriteSurfaceArea: 5108852
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -65,6 +65,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5ed019264d601244ba35a159c906f4d6, type: 3}
   - {fileID: 21300000, guid: 936129d775ead034da8ad71ea638faa2, type: 3}
   - {fileID: 21300000, guid: 62fa7a3803515364ea9d9485cb82d780, type: 3}
+  - {fileID: 21300000, guid: 1a9caa79d8aa8d4488db45fc634a8682, type: 3}
   - {fileID: 21300000, guid: cbb0c27d248af5a459f0833598c240e1, type: 3}
   - {fileID: 21300000, guid: d438d7dfdc9501b4db48485eba0a4ef3, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -74,6 +75,7 @@ SpriteAtlas:
   - Yellow Button Play
   - "Varl\u0131k 4-8"
   - BG
+  - Bronze
   - Green Elipse
   - Outline
   m_Tag: UIAtlas

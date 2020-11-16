@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         
     }
     
-    private void OnApplicationQuit()
+    /*private void OnApplicationQuit()
     {
         SaveGame();
     }
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         SavedDatas savedDatas = new SavedDatas();
         savedDatas.SaveLevel(LevelManager.Instance.GetCurrentLevel());
         PlayerPrefs.Save();
-    }
+    }*/
 
     public void SomeoneWinRound()
     {

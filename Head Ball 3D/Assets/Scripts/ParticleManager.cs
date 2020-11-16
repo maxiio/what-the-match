@@ -106,10 +106,7 @@ public class ParticleManager : MonoBehaviour
     }
 
 
-    public void FastHitBall()
-    {
-        fastHitBall.GetComponent<ParticleSystem>().Play();
-    }
+  
 
     public void TennisLEffect()
     {

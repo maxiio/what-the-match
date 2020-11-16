@@ -148,6 +148,7 @@ public class BallController : MonoBehaviour
         {
             if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.OpponentWin();
+            
 
 
             else if (gameObject.transform.position.z > 0 && isGround == false)
@@ -156,6 +157,7 @@ public class BallController : MonoBehaviour
             }
 
             isGround = true;
+            gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
             
         }
 
@@ -171,6 +173,7 @@ public class BallController : MonoBehaviour
             }
 
             isGround = true;
+            gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
         }
 
         if (other.tag.Equals("Player"))
@@ -191,7 +194,7 @@ public class BallController : MonoBehaviour
 
         if (other.name.Equals("BaseballbatL") || other.name.Equals("BaseballbatR"))
         {
-            ParticleManager.Instance.FastHitBall();
+            
             gameObject.GetComponent<TrailRenderer>().material = fastBallEffect;
                 
             if (other.name.Equals("BaseballbatL"))
@@ -219,7 +222,7 @@ public class BallController : MonoBehaviour
         {
             isShootWithItem = true;
             
-            ParticleManager.Instance.FastHitBall();
+            
             gameObject.GetComponent<TrailRenderer>().material = fastBallEffect;
             
             if (other.name.Equals("TennisRacketL"))

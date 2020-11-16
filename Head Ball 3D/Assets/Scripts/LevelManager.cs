@@ -17,9 +17,13 @@ public class LevelManager : MonoBehaviour
     {
         SingletonPattern();
         currentLevel = SceneManager.GetActiveScene().buildIndex;
-        EventManager.Instance.OnGameStarted += GameStartLevelText;
-        
+
         //EventManager.Instance.GameStarted += LoadNextLevel;
+    }
+
+    private void Start()
+    {
+        PlayerPrefs.SetInt("SAVED_LEVEL",currentLevel);
     }
 
     private void SingletonPattern()
@@ -47,14 +51,19 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int targetScene = currentLevel + 1;
+        if (targetScene == SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(1); 
+        }
+        else
+        {
+            SceneManager.LoadScene(targetScene);
+        }
+       
     }
 
-    public void GameStartLevelText()
-    {
-        currentLevelText.GetComponent<Text>().text = "Level " + currentLevel.ToString();
-    }
-
+    
    
 
 }

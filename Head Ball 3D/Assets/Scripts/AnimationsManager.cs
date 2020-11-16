@@ -10,7 +10,7 @@ public class AnimationsManager : MonoBehaviour
     public static AnimationsManager Instance;
 
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject currentLevelText;
+   
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class AnimationsManager : MonoBehaviour
         EventManager.Instance.OnPlayerMoved += PlayerMoving;
         EventManager.Instance.OnPlayerStopped += PlayerStopped;
         EventManager.Instance.OnObjectCreated += NewObjectCreated;
-        EventManager.Instance.OnGameStarted += GameStartText;
+      
         EventManager.Instance.OnPlayerWin += PlayerWin;
         EventManager.Instance.OnOpponentWin += PlayerLose;
         EventManager.Instance.OnNextRound += NextRound;
@@ -82,10 +82,7 @@ public class AnimationsManager : MonoBehaviour
         player.GetComponent<Animator>().SetBool("PlayerLose",true);
     }
 
-    public void GameStartText()
-    {
-        currentLevelText.transform.DOScale(1f,1f).SetEase(Ease.OutBounce).OnComplete((() => currentLevelText.transform.DOScale(0f,.5f)));
-    }
+   
 
     public void NextRound()
     {
