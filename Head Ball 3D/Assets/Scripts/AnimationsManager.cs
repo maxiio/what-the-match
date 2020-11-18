@@ -52,6 +52,7 @@ public class AnimationsManager : MonoBehaviour
     {
         player.GetComponent<Animator>().SetFloat("VelX",destination.x);
         player.GetComponent<Animator>().SetFloat("VelY",destination.y);
+        
     }
 
     public void PlayerStopped()

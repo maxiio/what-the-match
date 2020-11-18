@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     private void GameStarted()
     {
-        ActivateScripts();
+        //ActivateScripts();
     }
 
     private void DeactiveScripts()
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     public void SomeoneWinRound()
     {
-        DeactiveScripts();
+        //DeactiveScripts();
         StartCoroutine(NextRound());
     }
 
@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
 
     public void NextRoundPass()
     {
-        ActivateScripts();
+        //ActivateScripts();
     }
 
     
