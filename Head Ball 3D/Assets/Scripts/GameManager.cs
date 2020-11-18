@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Scenes.Levels.example.input.AxisManipulation;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,7 +9,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] private PlayerInput playerInput;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private OneAxisManipulator playerMain;
+    [SerializeField] private OneAxisManipulator playerMain2;
+    [SerializeField] private OneAxisManipulator playerPup;
+    [SerializeField] private OneAxisManipulator playerPup2;
     [SerializeField] private BallController ballController;
     [SerializeField] private OpponentAI opponentAI;
     [SerializeField] private GameObject randomObjectManager;
@@ -48,13 +52,15 @@ public class GameManager : MonoBehaviour
 
     private void GameStarted()
     {
-        //ActivateScripts();
+        ActivateScripts();
     }
 
     private void DeactiveScripts()
     {
-        playerInput.enabled = false;
-        playerMovement.enabled = false;
+        playerMain.enabled = false;
+        playerMain2.enabled = false;
+        playerPup.enabled = false;
+        playerPup2.enabled = false;
         ballController.enabled = false;
         opponentAI.enabled = false;
        
@@ -63,8 +69,10 @@ public class GameManager : MonoBehaviour
 
     private void ActivateScripts()
     {
-        playerInput.enabled = true;
-        playerMovement.enabled = true;
+        playerMain.enabled = true;
+        playerMain2.enabled = true;
+        playerPup.enabled = true;
+        playerPup2.enabled = true;
         ballController.enabled = true;
         opponentAI.enabled = true;
         
@@ -89,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     public void SomeoneWinRound()
     {
-        //DeactiveScripts();
+        DeactiveScripts();
         StartCoroutine(NextRound());
     }
 
@@ -112,7 +120,7 @@ public class GameManager : MonoBehaviour
 
     public void NextRoundPass()
     {
-        //ActivateScripts();
+        ActivateScripts();
     }
 
     
