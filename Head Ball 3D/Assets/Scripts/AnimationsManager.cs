@@ -89,5 +89,7 @@ public class AnimationsManager : MonoBehaviour
     {
         player.GetComponent<Animator>().SetBool("PlayerWin",false);
         player.GetComponent<Animator>().SetBool("PlayerLose",false);
+        player.GetComponent<Animator>().SetFloat("VelX",0);
+        player.GetComponent<Animator>().SetFloat("VelY",0);
     }
 }

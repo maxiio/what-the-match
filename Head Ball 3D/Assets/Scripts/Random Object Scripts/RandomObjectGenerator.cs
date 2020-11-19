@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class RandomObjectGenerator : MonoBehaviour

@@ -12,7 +12,7 @@ public class MiddleCollider : MonoBehaviour
     {
         if (other.gameObject.layer.Equals(9))
         {
-           forcePlace.GetComponent<Rigidbody>().MovePosition(forcePlace.transform.position - new Vector3(0,0,3f));
+           forcePlace.GetComponent<Rigidbody>().MovePosition(forcePlace.transform.position - new Vector3(0,0,.2f));
         }
     }
 
@@ -20,7 +20,7 @@ public class MiddleCollider : MonoBehaviour
     {
         if (other.gameObject.layer.Equals(9))
         {
-            forcePlace.GetComponent<Rigidbody>().MovePosition(forcePlace.transform.position - new Vector3(0,0,3f));
+            forcePlace.GetComponent<Rigidbody>().MovePosition(forcePlace.transform.position - new Vector3(0,0,.2f));
         }
     }
 }

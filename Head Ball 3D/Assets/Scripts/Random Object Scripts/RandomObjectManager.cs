@@ -16,9 +16,7 @@ public class RandomObjectManager : MonoBehaviour
 
     [SerializeField] private GameObject handBaseballR;
 
-    [SerializeField] private GameObject rightHand;
-    [SerializeField] private GameObject leftHand;
-    
+  
     // Start is called before the first frame update
     void Start()
     {

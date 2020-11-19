@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Cinemachine;
 using DG.Tweening;
 using RootMotion.Demos;
@@ -144,7 +145,7 @@ public class BallController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.name.Equals("Ground"))
+        if (other.tag.Equals("Ground"))
         {
             if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.OpponentWin();
@@ -161,9 +162,9 @@ public class BallController : MonoBehaviour
             
         }
 
-        if (other.name.Equals("OutGround"))
+        if (other.tag.Equals("OutGround"))
         {
-            Debug.Log("wtf");
+           
             if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.PlayerWin();
             

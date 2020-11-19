@@ -33,6 +33,7 @@ namespace Scenes.Levels.example.input.AxisManipulation
         // private float _baseWorldDistance;
         void Start()
         {
+            //EventManager.Instance.OnPlayerMoved += move;
             if (reverseControls)
                 reverseFactor = -1;
 
@@ -80,7 +81,13 @@ namespace Scenes.Levels.example.input.AxisManipulation
 
             if (onlyMoverElseExtraFactor)
                 soloMove();
-            else extraMove();
+
+            else
+            {
+                extraMove();
+                //Debug.Log("sddas");
+            }
+       
 
 
 
@@ -99,6 +106,7 @@ namespace Scenes.Levels.example.input.AxisManipulation
                     axisMust = axisMust > limitMinMax[1] ? limitMinMax[1] : axisMust;
                 }
             
+                //EventManager.Instance.PlayerMoved(assignAxis(worldAxis, axisMust, transform));
                 transform.position = assignAxis(worldAxis, axisMust, transform);
             }
 

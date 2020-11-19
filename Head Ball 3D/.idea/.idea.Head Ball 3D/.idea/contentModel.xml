@@ -58,9 +58,12 @@
             </e>
           </e>
         </e>
+        <e p="AutoJoystick.cs" t="Include" />
         <e p="Confetti FX" t="Include">
           <e p="readme.txt" t="Include" />
         </e>
+        <e p="DisableInput.cs" t="Include" />
+        <e p="Elimination.cs" t="Include" />
         <e p="Fonts" t="Include">
           <e p="Baloo_Bhai_2" t="Include">
             <e p="OFL.txt" t="Include" />
@@ -97,6 +100,18 @@
             </e>
           </e>
         </e>
+        <e p="Joystick.cs" t="Include" />
+        <e p="MobileJoystick" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Button.cs" t="Include" />
+            <e p="Example" t="Include">
+              <e p="BoxMover.cs" t="Include" />
+            </e>
+            <e p="Joystick.cs" t="Include" />
+            <e p="TouchField.cs" t="Include" />
+          </e>
+        </e>
+        <e p="PlayerController.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Demigiant" t="Include">
             <e p="DOTween" t="Include">
@@ -329,12 +344,14 @@
           <e p="CircleScript.cs" t="Include" />
           <e p="EventManager.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
+          <e p="LeftRightCollider.cs" t="Include" />
           <e p="LevelManager.cs" t="Include" />
           <e p="MiddleCollider.cs" t="Include" />
           <e p="OneAxisManipulator.cs" t="Include" />
           <e p="OpponentAI.cs" t="Include" />
           <e p="OpponentAnimationsManager.cs" t="Include" />
           <e p="ParticleManager.cs" t="Include" />
+          <e p="PlayerControl.cs" t="Include" />
           <e p="PlayerInput.cs" t="Include" />
           <e p="PlayerManager.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
@@ -349,6 +366,7 @@
           <e p="States.cs" t="Include" />
           <e p="Tennis.cs" t="Include" />
           <e p="UIManager.cs" t="Include" />
+          <e p="VirtualJoystickRegion.cs" t="Include" />
         </e>
       </e>
       <e p="Head Ball 3D.sln" t="IncludeFlat" />

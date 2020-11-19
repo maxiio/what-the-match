@@ -12,6 +12,8 @@ TagManager:
   - BackCollider
   - LeftSidePlayer
   - RightSidePlayer
+  - Ground
+  - OutGround
   layers:
   - Default
   - TransparentFX

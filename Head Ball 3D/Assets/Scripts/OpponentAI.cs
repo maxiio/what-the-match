@@ -56,7 +56,7 @@ public class OpponentAI : MonoBehaviour
 
                 destination = new Vector2(ballController.ringPosition.x, ballController.opponentFirstPosititon.y) - new Vector2(ballController.opponentFirstPosititon.x, ballController.opponentFirstPosititon.y);
 
-                Debug.Log(transform.position.x + "  " + ballController.ringPosition.x);
+                //Debug.Log(transform.position.x + "  " + ballController.ringPosition.x);
                 if (transform.position.x >= ballController.ringPosition.x - 1 && transform.position.x <= ballController.ringPosition.x + 1)
                 {
                     lastPos = new Vector2(transform.position.x, transform.position.z);
