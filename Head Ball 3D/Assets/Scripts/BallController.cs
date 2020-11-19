@@ -149,6 +149,7 @@ public class BallController : MonoBehaviour
         
         if (other.tag.Equals("Ground"))
         {
+            NormalTrailEffect();
             gameObject.GetComponent<TrailRenderer>().enabled = false;
             if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.OpponentWin();
@@ -168,7 +169,7 @@ public class BallController : MonoBehaviour
 
         if (other.tag.Equals("OutGround"))
         {
-           
+           NormalTrailEffect();
             if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.PlayerWin();
             
@@ -185,6 +186,7 @@ public class BallController : MonoBehaviour
 
         if (other.tag.Equals("Player"))
         {
+            NormalTrailEffect();
             gameObject.GetComponent<TrailRenderer>().enabled = true;
             //gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
             if (!isGround)
@@ -206,8 +208,8 @@ public class BallController : MonoBehaviour
         if (other.name.Equals("BaseballbatL") || other.name.Equals("BaseballbatR"))
         {
             UIManager.Instance.Thunder();
-            gameObject.GetComponent<TrailRenderer>().enabled = false;
-            ParticleManager.Instance.FastHitBallEffect();
+            FastTrailEffect();
+            //ParticleManager.Instance.FastHitBallEffect();
                 
             if (other.name.Equals("BaseballbatL"))
             {
@@ -236,10 +238,11 @@ public class BallController : MonoBehaviour
         {
             
             isShootWithItem = true;
-            ParticleManager.Instance.FastHitBallEffect();
+            //ParticleManager.Instance.FastHitBallEffect();
+            FastTrailEffect();
             UIManager.Instance.Thunder();
             
-            gameObject.GetComponent<TrailRenderer>().enabled = false;
+           
             
             if (other.name.Equals("TennisRacketL"))
             {
@@ -266,12 +269,13 @@ public class BallController : MonoBehaviour
         
         if (other.tag.Equals("Opponent"))
         {
+            NormalTrailEffect();
             /*if (States.Instance.playerState == States.PlayerState.Baseball)
             {
                 OpponentAnimationsManager.Instance.Fall();
             }*/
-            ParticleManager.Instance.DisableFastHitBallEffect();
-            gameObject.GetComponent<TrailRenderer>().enabled = true;
+            //ParticleManager.Instance.DisableFastHitBallEffect();
+            //gameObject.GetComponent<TrailRenderer>().enabled = true;
             //gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
             EventManager.Instance.OpponentCollideWithBall();
 
@@ -287,6 +291,20 @@ public class BallController : MonoBehaviour
             
             opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
         }
+    }
+    
+    public void FastTrailEffect()
+    {
+        gameObject.GetComponent<TrailRenderer>().material = fastBallEffect;
+        gameObject.GetComponent<TrailRenderer>().time = .6f;
+        gameObject.GetComponent<TrailRenderer>().minVertexDistance = 3f;
+    }
+    
+    public void NormalTrailEffect()
+    {
+        gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
+        gameObject.GetComponent<TrailRenderer>().time = .25f;
+        gameObject.GetComponent<TrailRenderer>().minVertexDistance = 1f;
     }
 
     public IEnumerator FastEffectDisable()

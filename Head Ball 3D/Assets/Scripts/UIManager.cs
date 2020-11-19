@@ -11,20 +11,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Canvas inGameCanvas;
     [SerializeField] private Canvas mainMenuCanvas;
     [SerializeField] private Canvas scoreCanvas;
-
-    [SerializeField] private GameObject loseText;
-    [SerializeField] private GameObject winText;
-
-  
-
-    [SerializeField] private GameObject winButton;
-    [SerializeField] private GameObject loseButton;
-
-    [SerializeField] private GameObject cup;
-
+    
     [SerializeField] private GameObject thunder;
-    
-    
+
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject losePanel;
     private void Awake()
     {
         SingletonPattern();
@@ -72,15 +63,18 @@ public class UIManager : MonoBehaviour
 
     public void OpponentWinMatch()
     {
-        loseText.SetActive(true);
-        loseButton.SetActive(true);
+        /*loseText.SetActive(true);
+        loseButton.SetActive(true);*/
+        losePanel.SetActive(true);
     }
 
     public void PlayerWinMatch()
     {
-        winButton.SetActive(true);
+        /*winButton.SetActive(true);
         winText.SetActive(true);
-        cup.SetActive(true);
+        winText2.SetActive(true);
+        cup.SetActive(true);*/
+        winPanel.SetActive(true);
     }
 
 
