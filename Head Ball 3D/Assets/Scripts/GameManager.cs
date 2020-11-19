@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Scenes.Levels.example.input.AxisManipulation;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
-    [SerializeField] private PlayerController playerController;
+    
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private BallController ballController;
     [SerializeField] private OpponentAI opponentAI;
-    [SerializeField] private GameObject randomObjectManager;
-
+    [SerializeField] private RandomObjectManager randomObjectManager;
+    
+    private PointerEventData x = null;
     private void Awake()
     {
         SingletonPattern();
@@ -23,7 +23,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        
+        /*fixedJoystick.OnPointerDown(x);
+        fixedJoystick.OnPointerUp(x);*/
+        //playerMovement.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         EventManager.Instance.OnGameStarted += GameStarted;
         EventManager.Instance.OnPlayerWin += SomeoneWinRound;
         EventManager.Instance.OnOpponentWin += SomeoneWinRound;
@@ -55,19 +58,18 @@ public class GameManager : MonoBehaviour
 
     private void DeactiveScripts()
     {
-        playerController.enabled = false;
         playerMovement.enabled = false;
-        //ballController.enabled = false;
+        ballController.enabled = false;
         opponentAI.enabled = false;
+        randomObjectManager.enabled = false;
     }
 
     private void ActivateScripts()
     {
-        playerController.enabled = true;
         playerMovement.enabled = true;
-        //ballController.enabled = true;
+        ballController.enabled = true;
         opponentAI.enabled = true;
-        
+        randomObjectManager.enabled = true;
     }
     
 

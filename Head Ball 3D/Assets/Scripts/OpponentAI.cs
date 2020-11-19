@@ -49,7 +49,7 @@ public class OpponentAI : MonoBehaviour
                 return;
             }
 
-            Debug.Log(falseDest);
+            //Debug.Log(falseDest);
 
             if (falseDest)
             {
@@ -108,12 +108,34 @@ public class OpponentAI : MonoBehaviour
                 spd = notCatchSpeed;
             }
         }
-
+        
         rigidbody.MovePosition(new Vector3(
             transform.position.x + (units.x * spd * Time.fixedDeltaTime),
             transform.position.y,
             transform.position.z + (units.y * spd * Time.fixedDeltaTime)
         ));
+
+        /*if (gameObject.transform.localPosition.x <= -14.8f)
+        {
+            gameObject.GetComponent<Rigidbody>().MovePosition(transform.position + new Vector3(.2f,0,0));
+        }
+        else if(gameObject.transform.localPosition.x >= 14.4f)
+        {
+            gameObject.GetComponent<Rigidbody>().MovePosition(transform.position - new Vector3(.2f,0,0));
+        }
+        else if (gameObject.transform.localPosition.z <= -14)
+        {
+            gameObject.GetComponent<Rigidbody>().MovePosition(transform.position + new Vector3(0,0,.2f));
+        }
+        else if (gameObject.transform.localPosition.z >= 20)
+        {
+            gameObject.GetComponent<Rigidbody>().MovePosition(transform.position - new Vector3(0,0,.2f));
+        }
+        else
+        {*/
+            
+        //}
+        
     }
 
     private Vector2 CalculateUnits(Vector2 destination)

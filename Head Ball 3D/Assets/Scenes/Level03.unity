@@ -211,7 +211,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3f0e396d76723f94f9ee0906ae685bf2,
         type: 3}
       propertyPath: m_Name
-      value: HeadBall3DTopiziitizi
+      value: Bigcircle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f0e396d76723f94f9ee0906ae685bf2, type: 3}
@@ -5901,6 +5901,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1072015071334386291, guid: 4740fb0e5c95a904d8803810fca49a2e,
+        type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 543450652245251489}
     - target: {fileID: 4963945835345113918, guid: 4740fb0e5c95a904d8803810fca49a2e,
         type: 3}
       propertyPath: ring

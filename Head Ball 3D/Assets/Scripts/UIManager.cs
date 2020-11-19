@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject loseButton;
 
     [SerializeField] private GameObject cup;
+
+    [SerializeField] private GameObject thunder;
     
     
     private void Awake()
@@ -35,7 +37,6 @@ public class UIManager : MonoBehaviour
        EventManager.Instance.OnGameStarted += GameStarted;
        EventManager.Instance.OnPlayerWin += PlayerWin;
        EventManager.Instance.OnOpponentWin += OpponentWin;
-       EventManager.Instance.OnNextRound += NextRound;
        EventManager.Instance.OnOpponentWinMatch += OpponentWinMatch;
        EventManager.Instance.OnPlayerWinMatch += PlayerWinMatch;
         
@@ -51,10 +52,7 @@ public class UIManager : MonoBehaviour
         inGameCanvas.gameObject.SetActive(true);
     }
 
-    public void GameOver()
-    {
-    }
-
+    
     
     public void PlayerWin()
     {
@@ -66,10 +64,11 @@ public class UIManager : MonoBehaviour
         scoreCanvas.gameObject.SetActive(true);   
     }
 
-    public void NextRound()
+    public void Thunder()
     {
-        scoreCanvas.gameObject.SetActive(false);
+        AnimationsManager.Instance.ThunderAnim(thunder);
     }
+   
 
     public void OpponentWinMatch()
     {

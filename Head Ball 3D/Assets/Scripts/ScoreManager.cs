@@ -11,17 +11,24 @@ public class ScoreManager : MonoBehaviour
 
     public int playerCounter = 0;
     public int opponentCounter = 0;
+
+    [SerializeField] private Material playerMaterial;
+    [SerializeField] private Material opponentMaterial;
     
     
     [SerializeField] private GameObject P1;
     [SerializeField] private GameObject P2;
     [SerializeField] private GameObject P3;
+    [SerializeField] private GameObject O1;
+    [SerializeField] private GameObject O2;
+    [SerializeField] private GameObject O3;
     // Start is called before the first frame update
     void Start()
     {
         SingletonPattern();
         EventManager.Instance.OnPlayerWin += AddPlayerScore;
         EventManager.Instance.OnOpponentWin += AddOpponentScore;
+        
     }
 
     // Update is called once per frame
@@ -75,8 +82,21 @@ public class ScoreManager : MonoBehaviour
     {
         opponentCounter++;
 
-        if(opponentCounter == 3)
-        EventManager.Instance.OpponentWinMatch();
+        if (opponentCounter == 1)
+        {
+            O1.SetActive(true);
+        }
+        
+        if (opponentCounter == 2)
+        {
+            O2.SetActive(true);
+        }
+        
+        if (opponentCounter == 3)
+        {
+            O3.SetActive(true);
+            EventManager.Instance.OpponentWinMatch();
+        }
        
     }
 }

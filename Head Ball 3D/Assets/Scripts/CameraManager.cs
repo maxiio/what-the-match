@@ -12,6 +12,7 @@ public class CameraManager : MonoBehaviour
     public bool dynamicCam = false;
 
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject platform;
 
     [SerializeField] private GameObject playerFarCamera;
     [SerializeField] private GameObject playerFollowCameraMiddle;
@@ -40,7 +41,9 @@ public class CameraManager : MonoBehaviour
             playerFollowCameraMiddle.SetActive(false);
         }
         playerFarCamera.SetActive(true);
-        
+        platform = GameObject.Find("Platform");
+        playerDeadCamera.GetComponent<CinemachineVirtualCamera>().LookAt = platform.transform;
+
     }
 
     private void Update()
@@ -92,16 +95,19 @@ public class CameraManager : MonoBehaviour
 
     public void NextRound()
     {
-        playerFarCamera.SetActive(true);
+        dynamicCam = false;
         playerFollowCameraMiddle.SetActive(false);
         playerFollowCameraNear1.SetActive(false);
         playerFollowCameraNear2.SetActive(false);
+        playerFarCamera.SetActive(true);
+      
         /*deadCameraPath.SetActive(true);
         playerDeadCamera.SetActive(true);*/
     }
 
     public void NextRoundPass()
     {
+        dynamicCam = true;
         /*deadCameraPath.SetActive(false);
         playerDeadCamera.SetActive(false);*/
         playerFollowCameraMiddle.SetActive(true);

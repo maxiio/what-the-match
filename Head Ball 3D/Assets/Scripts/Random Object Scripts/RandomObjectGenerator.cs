@@ -18,7 +18,7 @@ public class RandomObjectGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn",5f,10f);
+        InvokeRepeating("Spawn",5f,25f);
     }
     
     private void Spawn()

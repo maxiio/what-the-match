@@ -9,9 +9,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
     private int currentLevel;
- 
-
-    [SerializeField] private GameObject currentLevelText;
+    
 
     private void Awake()
     {

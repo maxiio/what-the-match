@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using UnityEditor;
 using UnityEngine;
 
 public class AnimationsManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class AnimationsManager : MonoBehaviour
     
     public static AnimationsManager Instance;
 
+    
     [SerializeField] private GameObject player;
    
 
@@ -24,7 +26,6 @@ public class AnimationsManager : MonoBehaviour
         EventManager.Instance.OnPlayerMoved += PlayerMoving;
         EventManager.Instance.OnPlayerStopped += PlayerStopped;
         EventManager.Instance.OnObjectCreated += NewObjectCreated;
-      
         EventManager.Instance.OnPlayerWin += PlayerWin;
         EventManager.Instance.OnOpponentWin += PlayerLose;
         EventManager.Instance.OnNextRound += NextRound;
@@ -68,11 +69,18 @@ public class AnimationsManager : MonoBehaviour
         if (obj != null)
         {
             objSeq.Append(obj.transform.DOPunchScale(new Vector3(.5f, .5f, .5f), .5f));
-            obj.transform.DOMoveY(3f, 1f).SetLoops(10,LoopType.Yoyo);
+            //obj.transform.DOMoveY(3f, 1f).SetLoops(10,LoopType.Yoyo);
         }
     
     }
 
+    public void ThunderAnim(GameObject obj)
+    {
+        obj.SetActive(true);
+        obj.transform.DOScale(0, 0);
+        obj.transform.DOScale(.3f,.8f).SetEase(Ease.OutBounce).OnComplete((() => obj.SetActive(false)));
+        
+    }
     public void PlayerWin()
     {
         player.GetComponent<Animator>().SetBool("PlayerWin",true);
