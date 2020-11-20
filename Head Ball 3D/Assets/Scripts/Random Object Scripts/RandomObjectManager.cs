@@ -36,6 +36,7 @@ public class RandomObjectManager : MonoBehaviour
                 if (obj.tag.Equals("Baseball"))
                 {
                     baseballL.SetActive(true);
+                    //Instantiate()
                     //Instantiate(handBaseballR, rightHand,quaternion.identity);
                     //baseballL.GetComponent<ConfigurableJoint>() = baseballLConfg;
                     States.Instance.ObjectTaked(obj);

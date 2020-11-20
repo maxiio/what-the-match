@@ -28,6 +28,8 @@ public class ParticleManager : MonoBehaviour
     [SerializeField] private GameObject confetti;
     [SerializeField] private GameObject confettiRound;
     [SerializeField] private GameObject confettiRound2;
+
+    [SerializeField] private GameObject nice;
     
 
     
@@ -95,7 +97,12 @@ public class ParticleManager : MonoBehaviour
         fastHitBall.GetComponent<ParticleSystem>().Play();
         
     }
-    
+
+    public void Nice()
+    {
+        nice.GetComponent<ParticleSystem>().Play();
+    }
+
     public void DisableFastHitBallEffect()
     {
         fastHitBall.GetComponent<ParticleSystem>().Stop();

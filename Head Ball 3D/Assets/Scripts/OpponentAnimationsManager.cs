@@ -73,5 +73,13 @@ public class OpponentAnimationsManager : MonoBehaviour
     public void Fall()
     {
         Opponent.GetComponent<Animator>().SetBool("Fall",true);
+        StartCoroutine(DeactiveFall());
+    }
+
+    public IEnumerator DeactiveFall()
+    {
+        yield return  new WaitForSeconds(1.5f);
+        
+        Opponent.GetComponent<Animator>().SetBool("Fall",false);
     }
 }

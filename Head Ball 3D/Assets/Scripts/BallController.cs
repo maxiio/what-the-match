@@ -149,7 +149,7 @@ public class BallController : MonoBehaviour
         
         if (other.tag.Equals("Ground"))
         {
-            NormalTrailEffect();
+            //NormalTrailEffect();
             gameObject.GetComponent<TrailRenderer>().enabled = false;
             if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.OpponentWin();
@@ -163,13 +163,14 @@ public class BallController : MonoBehaviour
 
             isGround = true;
             //gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
-            ParticleManager.Instance.DisableFastHitBallEffect();
+            
+            isShootWithItem = false;
             
         }
 
         if (other.tag.Equals("OutGround"))
         {
-           NormalTrailEffect();
+           //NormalTrailEffect();
             if(gameObject.transform.position.z < 0 && isGround == false)
                 EventManager.Instance.PlayerWin();
             
@@ -181,7 +182,8 @@ public class BallController : MonoBehaviour
             isGround = true;
             gameObject.GetComponent<TrailRenderer>().enabled = false;
             //gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
-            ParticleManager.Instance.DisableFastHitBallEffect();
+            
+            isShootWithItem = false;
         }
 
         if (other.tag.Equals("Player"))
@@ -198,17 +200,24 @@ public class BallController : MonoBehaviour
         
             turn = BallState.PlayerShoot;
 
-            Shoot(BallState.PlayerShoot, other);
+            Shoot(BallState.PlayerShoot, other,false);
             
             SetRingPosition(0.94f);
 
             opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
+            isShootWithItem = false;
         }
 
         if (other.name.Equals("BaseballbatL") || other.name.Equals("BaseballbatR"))
         {
+            gameObject.GetComponent<TrailRenderer>().enabled = true;
+            isShootWithItem = true;
             UIManager.Instance.Thunder();
             FastTrailEffect();
+            if (!isGround)
+            {
+                
+            }
             //ParticleManager.Instance.FastHitBallEffect();
                 
             if (other.name.Equals("BaseballbatL"))
@@ -224,24 +233,27 @@ public class BallController : MonoBehaviour
 
             turn = BallState.PlayerShoot;
             
-            Shoot(BallState.PlayerShoot, other);
+            Shoot(BallState.PlayerShoot, other,true);
             
             SetRingPosition(0.94f);
 
             opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
             
-            StartCoroutine(FastEffectDisable());
+            //StartCoroutine(FastEffectDisable());
 
         }
 
         if (other.name.Equals("TennisRacketR") || other.name.Equals("TennisRacketL"))
         {
-            
+            gameObject.GetComponent<TrailRenderer>().enabled = true;
             isShootWithItem = true;
             //ParticleManager.Instance.FastHitBallEffect();
-            FastTrailEffect();
             UIManager.Instance.Thunder();
-            
+            FastTrailEffect();
+            if (!isGround)
+            {
+              
+            }
            
             
             if (other.name.Equals("TennisRacketL"))
@@ -258,13 +270,13 @@ public class BallController : MonoBehaviour
             
             turn = BallState.PlayerShoot;
 
-            Shoot(BallState.PlayerShoot, other);
+            Shoot(BallState.PlayerShoot, other,true);
             
             SetRingPosition(0.94f);
 
             opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
 
-            StartCoroutine(FastEffectDisable());
+            //StartCoroutine(FastEffectDisable());
         }
         
         if (other.tag.Equals("Opponent"))
@@ -279,17 +291,24 @@ public class BallController : MonoBehaviour
             //gameObject.GetComponent<TrailRenderer>().material = normalBallEffect;
             EventManager.Instance.OpponentCollideWithBall();
 
-            isShootWithItem = false;
+            if (isShootWithItem == true)
+            {
+                Debug.Log("itemle vurdum aq");
+                OpponentAnimationsManager.Instance.Fall();
+                ParticleManager.Instance.Nice();
+                isShootWithItem = false;
+            }
             
             opponentHead.transform.position -= headForce;
             
             turn = BallState.OpponentShoot;
 
-            Shoot(BallState.OpponentShoot, other);
+            Shoot(BallState.OpponentShoot, other,false);
             
             SetRingPosition(0.94f);
             
             opponentFirstPosititon = new Vector2(opponentMain.transform.position.x, opponentMain.transform.position.z);
+           
         }
     }
     
@@ -314,8 +333,15 @@ public class BallController : MonoBehaviour
         ParticleManager.Instance.DisableFastHitBallEffect();
     }
 
-    private void Shoot(BallState ballState, Collider collision)
+    private void Shoot(BallState ballState, Collider collision,bool ShootWithItem)
     {
+        //if shoot with item
+
+        if (ShootWithItem == true)
+        {
+            ThrowBall(transform.position.x - fallRadius / 3f, transform.position.x + fallRadius / 3f);
+            return;
+        }
         // if opponent shots
         if (ballState == BallState.OpponentShoot)
         {
