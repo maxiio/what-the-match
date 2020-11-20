@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     private void GameStarted()
     {
+        //play tuşuna basıldı
         ActivateScripts();
     }
 
