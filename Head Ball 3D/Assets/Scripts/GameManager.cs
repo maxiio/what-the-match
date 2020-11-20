@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.OnPlayerWin += SomeoneWinRound;
         EventManager.Instance.OnOpponentWin += SomeoneWinRound;
         EventManager.Instance.OnNextRound += NextRoundPass;
+        EventManager.Instance.OnPlayerWinMatch += MatchEnded;
+        EventManager.Instance.OnOpponentWinMatch += MatchEnded;
     }
     
     #region Singleton
@@ -72,7 +74,11 @@ public class GameManager : MonoBehaviour
         opponentAI.enabled = true;
         randomObjectManager.enabled = true;
     }
-    
+
+    public void MatchEnded()
+    {
+        //oyunu birisi kazandı.
+    }
 
 
     public void SomeoneWinRound()
